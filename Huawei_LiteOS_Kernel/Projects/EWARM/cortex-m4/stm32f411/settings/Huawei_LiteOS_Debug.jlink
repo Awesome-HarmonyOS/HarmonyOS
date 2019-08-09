@@ -1,0 +1,39 @@
+[BREAKPOINTS]
+ForceImpTypeAny = 0
+ShowInfoWin = 1
+EnableFlashBP = 2
+BPDuringExecution = 0
+[CFI]
+CFISize = 0x00
+CFIAddr = 0x00
+[CPU]
+MonModeVTableAddr = 0xFFFFFFFF
+MonModeDebug = 0
+MaxNumAPs = 0
+LowPowerHandlingMode = 0
+OverrideMemMap = 0
+AllowSimulation = 1
+ScriptFile=""
+[FLASH]
+CacheExcludeSize = 0x00
+CacheExcludeAddr = 0x00
+MinNumBytesFlashDL = 0
+SkipProgOnCRCMatch = 1
+VerifyDownload = 1
+AllowCaching = 1
+EnableFlashDL = 2
+Override = 0
+Device="ARM7"
+[GENERAL]
+WorkRAMSize = 0x00
+WorkRAMAddr = 0x00
+RAMUsageLimit = 0x00
+[SWO]
+SWOLogFile=""
+[MEM]
+RdOverrideOrMask = 0x00
+RdOverrideAndMask = 0xFFFFFFFF
+RdOverrideAddr = 0xFFFFFFFF
+WrOverrideOrMask = 0x00
+WrOverrideAndMask = 0xFFFFFFFF
+WrOverrideAddr = 0xFFFFFFFF

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<crun>
+  <version>1</version>
+  <filter_entries>
+    <filter index="0" type="default">
+      <type>*</type>
+      <start_file>*</start_file>
+      <end_file>*</end_file>
+      <action_debugger>0</action_debugger>
+      <action_log>1</action_log>
+    </filter>
+  </filter_entries>
+</crun>
+
+
