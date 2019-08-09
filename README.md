@@ -44,7 +44,7 @@ HarmonyOS is a realtime, modular, microkernel operating system.
 
 ## Official Resources
 
-- [Official Site](https://www.huawei.com)
+- [Official Site](https://developer.huawei.com)
 - [Release Notices]
 - [Security Notices]
 - [Tutorials]
