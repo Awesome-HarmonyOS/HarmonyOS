@@ -2,7 +2,7 @@
 HarmonyOS 鸿蒙
 <p align="center">
   <a href="https://github.com/leisim/awesome-fuchsia">
-    <img src="assets/img/hi.png" width="750px">
+    <img src="assets/img/hi.jpg" width="750px">
   </a>
 </p>
 
