@@ -8,7 +8,7 @@
 
 
 
-> A curated list of awesome things related to Hongmeng OS
+> A curated list of awesome things related to HarmonyOS
 
 # 系统简介
 - 鸿蒙系统是基于微内核的全场景分布式OS，可按需扩展，实现更广泛的系统安全，主要用于物联网，特点是低时延，甚至可到毫秒级乃至亚毫秒级。 
