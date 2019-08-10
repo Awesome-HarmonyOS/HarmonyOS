@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<example name="hello_world" category="demo_apps" board_ref="LPCXPRESSO51U68" version="1.0.0" format_version="2.1">
+  <source path="boards/lpcxpresso51u68/demo_apps/hello_world" target_path="sources" type="c_include">
+    <files mask="board.h"/>
+    <files mask="clock_config.h"/>
+    <files mask="pin_mux.h"/>
+  </source>
+  <source path="boards/lpcxpresso51u68/demo_apps/hello_world" target_path="doc" type="doc">
+    <files mask="readme.txt"/>
+  </source>
+  <source path="boards/lpcxpresso51u68/demo_apps/hello_world" target_path="sources" type="src">
+    <files mask="board.c"/>
+    <files mask="clock_config.c"/>
+    <files mask="hello_world.c"/>
+    <files mask="pin_mux.c"/>
+  </source>
+  <source path="devices/LPC51U68/arm" target_path="devices/arm" type="lib" compilers="arm">
+    <files mask="keil_lib_power.lib"/>
+  </source>
+  <source path="devices/LPC51U68/arm" target_path="devices/arm" type="src" compilers="arm">
+    <files mask="startup_LPC51U68.s"/>
+  </source>
+  <source path="devices/LPC51U68/drivers" target_path="drivers" type="c_include">
+    <files mask="fsl_clock.h"/>
+    <files mask="fsl_common.h"/>
+    <files mask="fsl_flexcomm.h"/>
+    <files mask="fsl_gpio.h"/>
+    <files mask="fsl_iocon.h"/>
+    <files mask="fsl_power.h"/>
+    <files mask="fsl_reset.h"/>
+    <files mask="fsl_usart.h"/>
+  </source>
+  <source path="devices/LPC51U68/drivers" target_path="drivers" type="src">
+    <files mask="fsl_clock.c"/>
+    <files mask="fsl_common.c"/>
+    <files mask="fsl_flexcomm.c"/>
+    <files mask="fsl_gpio.c"/>
+    <files mask="fsl_power.c"/>
+    <files mask="fsl_reset.c"/>
+    <files mask="fsl_usart.c"/>
+  </source>
+  <source path="devices/LPC51U68/gcc" target_path="devices/gcc" type="lib" compilers="gcc">
+    <files mask="libpower.a"/>
+  </source>
+  <source path="devices/LPC51U68/gcc" target_path="devices/gcc" type="src" compilers="gcc">
+    <files mask="startup_LPC51U68.S"/>
+  </source>
+  <source path="devices/LPC51U68/iar" target_path="devices/iar" type="lib" compilers="iar">
+    <files mask="iar_lib_power.a"/>
+  </source>
+  <source path="devices/LPC51U68/iar" target_path="devices/iar" type="src" compilers="iar">
+    <files mask="startup_LPC51U68.s"/>
+  </source>
+  <source path="devices/LPC51U68/mcuxpresso" target_path="devices/mcuxpresso" type="lib" compilers="gcc">
+    <files mask="libpower.a"/>
+  </source>
+  <source path="devices/LPC51U68/utilities/io" target_path="utilities" type="c_include">
+    <files mask="fsl_io.h"/>
+  </source>
+  <source path="devices/LPC51U68/utilities/io" target_path="utilities" type="src">
+    <files mask="fsl_io.c"/>
+  </source>
+  <source path="devices/LPC51U68/utilities/log" target_path="utilities" type="c_include">
+    <files mask="fsl_log.h"/>
+  </source>
+  <source path="devices/LPC51U68/utilities/log" target_path="utilities" type="src">
+    <files mask="fsl_log.c"/>
+  </source>
+  <source path="devices/LPC51U68/utilities/str" target_path="utilities" type="c_include">
+    <files mask="fsl_str.h"/>
+  </source>
+  <source path="devices/LPC51U68/utilities/str" target_path="utilities" type="src">
+    <files mask="fsl_str.c"/>
+  </source>
+  <source path="devices/LPC51U68/utilities" target_path="utilities" type="c_include">
+    <files mask="fsl_debug_console.h"/>
+    <files mask="fsl_debug_console_conf.h"/>
+  </source>
+  <source path="devices/LPC51U68/utilities" target_path="utilities" type="src">
+    <files mask="fsl_assert.c"/>
+    <files mask="fsl_debug_console.c"/>
+  </source>
+  <source path="devices/LPC51U68" target_path="devices" type="c_include">
+    <files mask="LPC51U68.h"/>
+    <files mask="LPC51U68_features.h"/>
+    <files mask="fsl_device_registers.h"/>
+    <files mask="system_LPC51U68.h"/>
+  </source>
+  <source path="devices/LPC51U68" target_path="devices" type="src">
+    <files mask="system_LPC51U68.c"/>
+  </source>
+  <include_paths>
+    <include path="devices/arm" compilers="arm"/>
+    <include path="devices/gcc" compilers="gcc"/>
+    <include path="devices/iar" compilers="iar"/>
+    <include path="devices/mcuxpresso" compilers="gcc"/>
+    <include path="devices"/>
+    <include path="drivers"/>
+    <include path="sources"/>
+    <include path="utilities"/>
+  </include_paths>
+</example>

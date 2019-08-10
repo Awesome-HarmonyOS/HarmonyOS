@@ -1,0 +1,42 @@
+/* BEGIN_HEADER */
+#include <mbedtls/ssl.h>
+#include <mbedtls/ssl_internal.h>
+/* END_HEADER */
+
+/* BEGIN_DEPENDENCIES
+ * depends_on:MBEDTLS_SSL_TLS_C
+ * END_DEPENDENCIES
+ */
+
+/* BEGIN_CASE depends_on:MBEDTLS_SSL_DTLS_ANTI_REPLAY */
+void ssl_dtls_replay( char *prevs, char *new, int ret )
+{
+    mbedtls_ssl_context ssl;
+    mbedtls_ssl_config conf;
+    char *end_prevs = prevs + strlen( prevs ) + 1;
+
+    mbedtls_ssl_init( &ssl );
+    mbedtls_ssl_config_init( &conf );
+
+    TEST_ASSERT( mbedtls_ssl_config_defaults( &conf,
+                 MBEDTLS_SSL_IS_CLIENT,
+                 MBEDTLS_SSL_TRANSPORT_DATAGRAM,
+                 MBEDTLS_SSL_PRESET_DEFAULT ) == 0 );
+    TEST_ASSERT( mbedtls_ssl_setup( &ssl, &conf ) == 0 );
+
+    /* Read previous record numbers */
+    for( ; end_prevs - prevs >= 13; prevs += 13 )
+    {
+        prevs[12] = '\0';
+        unhexify( ssl.in_ctr + 2, prevs );
+        mbedtls_ssl_dtls_replay_update( &ssl );
+    }
+
+    /* Check new number */
+    unhexify( ssl.in_ctr + 2, new );
+    TEST_ASSERT( mbedtls_ssl_dtls_replay_check( &ssl ) == ret );
+
+    mbedtls_ssl_free( &ssl );
+    mbedtls_ssl_config_free( &conf );
+}
+/* END_CASE */

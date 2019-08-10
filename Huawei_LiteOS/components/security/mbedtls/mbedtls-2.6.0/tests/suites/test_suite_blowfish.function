@@ -1,0 +1,260 @@
+/* BEGIN_HEADER */
+#include "mbedtls/blowfish.h"
+/* END_HEADER */
+
+/* BEGIN_DEPENDENCIES
+ * depends_on:MBEDTLS_BLOWFISH_C
+ * END_DEPENDENCIES
+ */
+
+/* BEGIN_CASE */
+void blowfish_encrypt_ecb( char *hex_key_string, char *hex_src_string,
+                           char *hex_dst_string, int setkey_result )
+{
+    unsigned char key_str[100];
+    unsigned char src_str[100];
+    unsigned char dst_str[100];
+    unsigned char output[100];
+    mbedtls_blowfish_context ctx;
+    int key_len;
+
+    memset(key_str, 0x00, 100);
+    memset(src_str, 0x00, 100);
+    memset(dst_str, 0x00, 100);
+    memset(output, 0x00, 100);
+    mbedtls_blowfish_init( &ctx );
+
+    key_len = unhexify( key_str, hex_key_string );
+    unhexify( src_str, hex_src_string );
+
+    TEST_ASSERT( mbedtls_blowfish_setkey( &ctx, key_str, key_len * 8 ) == setkey_result );
+    if( setkey_result == 0 )
+    {
+        TEST_ASSERT( mbedtls_blowfish_crypt_ecb( &ctx, MBEDTLS_BLOWFISH_ENCRYPT, src_str, output ) == 0 );
+        hexify( dst_str, output, 8 );
+
+        TEST_ASSERT( strcmp( (char *) dst_str, hex_dst_string ) == 0 );
+    }
+
+exit:
+    mbedtls_blowfish_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE */
+void blowfish_decrypt_ecb( char *hex_key_string, char *hex_src_string,
+                           char *hex_dst_string, int setkey_result )
+{
+    unsigned char key_str[100];
+    unsigned char src_str[100];
+    unsigned char dst_str[100];
+    unsigned char output[100];
+    mbedtls_blowfish_context ctx;
+    int key_len;
+
+    memset(key_str, 0x00, 100);
+    memset(src_str, 0x00, 100);
+    memset(dst_str, 0x00, 100);
+    memset(output, 0x00, 100);
+    mbedtls_blowfish_init( &ctx );
+
+    key_len = unhexify( key_str, hex_key_string );
+    unhexify( src_str, hex_src_string );
+
+    TEST_ASSERT( mbedtls_blowfish_setkey( &ctx, key_str, key_len * 8 ) == setkey_result );
+    if( setkey_result == 0 )
+    {
+        TEST_ASSERT( mbedtls_blowfish_crypt_ecb( &ctx, MBEDTLS_BLOWFISH_DECRYPT, src_str, output ) == 0 );
+        hexify( dst_str, output, 8 );
+
+        TEST_ASSERT( strcmp( (char *) dst_str, hex_dst_string ) == 0 );
+    }
+
+exit:
+    mbedtls_blowfish_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE depends_on:MBEDTLS_CIPHER_MODE_CBC */
+void blowfish_encrypt_cbc( char *hex_key_string, char *hex_iv_string,
+                           char *hex_src_string, char *hex_dst_string,
+                           int cbc_result )
+{
+    unsigned char key_str[100];
+    unsigned char iv_str[100];
+    unsigned char src_str[100];
+    unsigned char dst_str[100];
+    unsigned char output[100];
+    mbedtls_blowfish_context ctx;
+    int key_len, data_len;
+
+    memset(key_str, 0x00, 100);
+    memset(iv_str, 0x00, 100);
+    memset(src_str, 0x00, 100);
+    memset(dst_str, 0x00, 100);
+    memset(output, 0x00, 100);
+    mbedtls_blowfish_init( &ctx );
+
+    key_len = unhexify( key_str, hex_key_string );
+    unhexify( iv_str, hex_iv_string );
+    data_len = unhexify( src_str, hex_src_string );
+
+    mbedtls_blowfish_setkey( &ctx, key_str, key_len * 8 );
+
+    TEST_ASSERT( mbedtls_blowfish_crypt_cbc( &ctx, MBEDTLS_BLOWFISH_ENCRYPT, data_len , iv_str, src_str, output ) == cbc_result );
+    if( cbc_result == 0 )
+    {
+        hexify( dst_str, output, data_len );
+
+        TEST_ASSERT( strcmp( (char *) dst_str, hex_dst_string ) == 0 );
+    }
+
+exit:
+    mbedtls_blowfish_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE depends_on:MBEDTLS_CIPHER_MODE_CBC */
+void blowfish_decrypt_cbc( char *hex_key_string, char *hex_iv_string,
+                           char *hex_src_string, char *hex_dst_string,
+                           int cbc_result )
+{
+    unsigned char key_str[100];
+    unsigned char iv_str[100];
+    unsigned char src_str[100];
+    unsigned char dst_str[100];
+    unsigned char output[100];
+    mbedtls_blowfish_context ctx;
+    int key_len, data_len;
+
+    memset(key_str, 0x00, 100);
+    memset(iv_str, 0x00, 100);
+    memset(src_str, 0x00, 100);
+    memset(dst_str, 0x00, 100);
+    memset(output, 0x00, 100);
+    mbedtls_blowfish_init( &ctx );
+
+    key_len = unhexify( key_str, hex_key_string );
+    unhexify( iv_str, hex_iv_string );
+    data_len = unhexify( src_str, hex_src_string );
+
+    mbedtls_blowfish_setkey( &ctx, key_str, key_len * 8 );
+    TEST_ASSERT( mbedtls_blowfish_crypt_cbc( &ctx, MBEDTLS_BLOWFISH_DECRYPT, data_len , iv_str, src_str, output ) == cbc_result );
+    if( cbc_result == 0)
+    {
+        hexify( dst_str, output, data_len );
+
+        TEST_ASSERT( strcmp( (char *) dst_str, hex_dst_string ) == 0 );
+    }
+
+exit:
+    mbedtls_blowfish_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE depends_on:MBEDTLS_CIPHER_MODE_CFB */
+void blowfish_encrypt_cfb64( char *hex_key_string, char *hex_iv_string,
+                             char *hex_src_string, char *hex_dst_string )
+{
+    unsigned char key_str[100];
+    unsigned char iv_str[100];
+    unsigned char src_str[100];
+    unsigned char dst_str[100];
+    unsigned char output[100];
+    mbedtls_blowfish_context ctx;
+    size_t iv_offset = 0;
+    int key_len, src_len;
+
+    memset(key_str, 0x00, 100);
+    memset(iv_str, 0x00, 100);
+    memset(src_str, 0x00, 100);
+    memset(dst_str, 0x00, 100);
+    memset(output, 0x00, 100);
+    mbedtls_blowfish_init( &ctx );
+
+    key_len = unhexify( key_str, hex_key_string );
+    unhexify( iv_str, hex_iv_string );
+    src_len = unhexify( src_str, hex_src_string );
+
+    mbedtls_blowfish_setkey( &ctx, key_str, key_len * 8 );
+    TEST_ASSERT( mbedtls_blowfish_crypt_cfb64( &ctx, MBEDTLS_BLOWFISH_ENCRYPT, src_len, &iv_offset, iv_str, src_str, output ) == 0 );
+    hexify( dst_str, output, src_len );
+
+    TEST_ASSERT( strcmp( (char *) dst_str, hex_dst_string ) == 0 );
+
+exit:
+    mbedtls_blowfish_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE depends_on:MBEDTLS_CIPHER_MODE_CFB */
+void blowfish_decrypt_cfb64( char *hex_key_string, char *hex_iv_string,
+                             char *hex_src_string, char *hex_dst_string )
+{
+    unsigned char key_str[100];
+    unsigned char iv_str[100];
+    unsigned char src_str[100];
+    unsigned char dst_str[100];
+    unsigned char output[100];
+    mbedtls_blowfish_context ctx;
+    size_t iv_offset = 0;
+    int key_len, src_len;
+
+    memset(key_str, 0x00, 100);
+    memset(iv_str, 0x00, 100);
+    memset(src_str, 0x00, 100);
+    memset(dst_str, 0x00, 100);
+    memset(output, 0x00, 100);
+    mbedtls_blowfish_init( &ctx );
+
+    key_len = unhexify( key_str, hex_key_string );
+    unhexify( iv_str, hex_iv_string );
+    src_len = unhexify( src_str, hex_src_string );
+
+    mbedtls_blowfish_setkey( &ctx, key_str, key_len * 8 );
+    TEST_ASSERT( mbedtls_blowfish_crypt_cfb64( &ctx, MBEDTLS_BLOWFISH_DECRYPT, src_len, &iv_offset, iv_str, src_str, output ) == 0 );
+    hexify( dst_str, output, src_len );
+
+    TEST_ASSERT( strcmp( (char *) dst_str, hex_dst_string ) == 0 );
+
+exit:
+    mbedtls_blowfish_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE depends_on:MBEDTLS_CIPHER_MODE_CTR */
+void blowfish_encrypt_ctr( char *hex_key_string, char *hex_iv_string,
+                           char *hex_src_string, char *hex_dst_string )
+{
+    unsigned char key_str[100];
+    unsigned char iv_str[100];
+    unsigned char stream_str[100];
+    unsigned char src_str[100];
+    unsigned char dst_str[100];
+    unsigned char output[100];
+    mbedtls_blowfish_context ctx;
+    size_t iv_offset = 0;
+    int key_len, src_len;
+
+    memset(key_str, 0x00, 100);
+    memset(iv_str, 0x00, 100);
+    memset(stream_str, 0x00, 100);
+    memset(src_str, 0x00, 100);
+    memset(dst_str, 0x00, 100);
+    memset(output, 0x00, 100);
+    mbedtls_blowfish_init( &ctx );
+
+    key_len = unhexify( key_str, hex_key_string );
+    unhexify( iv_str, hex_iv_string );
+    src_len = unhexify( src_str, hex_src_string );
+
+    mbedtls_blowfish_setkey( &ctx, key_str, key_len * 8 );
+    TEST_ASSERT( mbedtls_blowfish_crypt_ctr( &ctx, src_len, &iv_offset, iv_str, stream_str, src_str, output ) == 0 );
+    hexify( dst_str, output, src_len );
+
+    TEST_ASSERT( strcmp( (char *) dst_str, hex_dst_string ) == 0 );
+
+exit:
+    mbedtls_blowfish_free( &ctx );
+}
+/* END_CASE */

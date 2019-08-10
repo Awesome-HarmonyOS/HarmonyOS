@@ -1,0 +1,8 @@
+/dep/
+/build/
+/build.paho/
+*.swp
+*.pyc
+/doc/MQTTClient/
+/doc/MQTTPacket/
+/doc/MQTTClient-C/

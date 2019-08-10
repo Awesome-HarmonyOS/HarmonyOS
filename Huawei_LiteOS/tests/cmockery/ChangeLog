@@ -1,0 +1,17 @@
+Mon Sep 15 17:21:22 2008 Google Inc. <opensource@google.com>
+	* cmockery: version 0.12
+	* Made it possible to specify additional compiler, lib tool and link 
+	flags on Windows.
+	* Added Windows makefile to the tar ball.
+
+Fri Aug 29 10:50:46 2008  Google Inc. <opensource@google.com>
+
+	* cmockery: version 0.11
+	* Made it possible to specify executable, library and object output 
+	  directories.
+
+Tue Aug 26 10:18:02 2008  Google Inc. <opensource@google.com>
+
+	* cmockery: initial release:
+	  A lightweight library to simplify and generalize the process of 
+	  writing unit tests for C applications.

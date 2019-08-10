@@ -1,0 +1,10 @@
+For information about how to use the cmockery unit testing framework see
+readme.md.
+
+COMPILING
+---------
+To compile the cmockery library and example applications run ./configure
+followed by make.  On Windows from the command line run vsvars.bat then cd into
+the windows subdirectory of this project and run nmake.
+
+This code has been tested on Linux (Ubuntu) and Windows using VC++7 and VC++8.

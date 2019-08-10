@@ -1,0 +1,87 @@
+/* BEGIN_HEADER */
+#include "mbedtls/pkcs5.h"
+/* END_HEADER */
+
+/* BEGIN_DEPENDENCIES
+ * depends_on:MBEDTLS_PKCS5_C
+ * END_DEPENDENCIES
+ */
+
+/* BEGIN_CASE */
+void pbkdf2_hmac( int hash, char *hex_password_string,
+                  char *hex_salt_string, int it_cnt, int key_len,
+                  char *result_key_string )
+{
+    unsigned char pw_str[100];
+    unsigned char salt_str[100];
+    unsigned char dst_str[100];
+
+    mbedtls_md_context_t ctx;
+    const mbedtls_md_info_t *info;
+
+    int pw_len, salt_len;
+    unsigned char key[100];
+
+    mbedtls_md_init( &ctx );
+
+    memset(pw_str, 0x00, 100);
+    memset(salt_str, 0x00, 100);
+    memset(dst_str, 0x00, 100);
+
+    pw_len = unhexify( pw_str, hex_password_string );
+    salt_len = unhexify( salt_str, hex_salt_string );
+
+
+    info = mbedtls_md_info_from_type( hash );
+    TEST_ASSERT( info != NULL );
+    TEST_ASSERT( mbedtls_md_setup( &ctx, info, 1 ) == 0 );
+    TEST_ASSERT( mbedtls_pkcs5_pbkdf2_hmac( &ctx, pw_str, pw_len, salt_str, salt_len,
+                                     it_cnt, key_len, key ) == 0 );
+
+    hexify( dst_str, key, key_len );
+    TEST_ASSERT( strcmp( (char *) dst_str, result_key_string ) == 0 );
+
+exit:
+    mbedtls_md_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE */
+void mbedtls_pkcs5_pbes2( int params_tag, char *params_hex, char *pw_hex,
+                  char *data_hex, int ref_ret, char *ref_out_hex )
+{
+    int my_ret;
+    mbedtls_asn1_buf params;
+    unsigned char *my_out = NULL, *ref_out = NULL, *data = NULL, *pw = NULL;
+    size_t ref_out_len, data_len, pw_len;
+
+    params.tag = params_tag;
+    params.p = unhexify_alloc( params_hex, &params.len );
+
+    data = unhexify_alloc( data_hex, &data_len );
+    pw = unhexify_alloc( pw_hex, &pw_len );
+    ref_out = unhexify_alloc( ref_out_hex, &ref_out_len );
+    my_out = zero_alloc( ref_out_len );
+
+    my_ret = mbedtls_pkcs5_pbes2( &params, MBEDTLS_PKCS5_DECRYPT,
+                          pw, pw_len, data, data_len, my_out );
+    TEST_ASSERT( my_ret == ref_ret );
+
+    if( ref_ret == 0 )
+        TEST_ASSERT( memcmp( my_out, ref_out, ref_out_len ) == 0 );
+
+exit:
+    mbedtls_free( params.p );
+    mbedtls_free( data );
+    mbedtls_free( pw );
+    mbedtls_free( ref_out );
+    mbedtls_free( my_out );
+}
+/* END_CASE */
+
+/* BEGIN_CASE depends_on:MBEDTLS_SELF_TEST */
+void pkcs5_selftest( )
+{
+    TEST_ASSERT( mbedtls_pkcs5_self_test( 1 ) == 0 );
+}
+/* END_CASE */

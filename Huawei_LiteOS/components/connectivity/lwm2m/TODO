@@ -1,0 +1,46 @@
+LWM2M Features
+--------------
+
+ - Access Control List
+ 
+ - JSON support
+  
+ - Add token in every message
+ 
+ - Handle Observe parameters
+ 
+ - Keep-alive mechanism
+ 
+ - Support for Object Link datatype
+ 
+ - Discover method support
+ 
+ 
+ Bugfixes
+ --------
+ 
+ 
+ Implementation Improvements
+ ---------------------------
+ 
+  - Store lwm2m_transaction_t per peer
+  
+  - bufferize all CoaP messages until all callbacks returned
+  Currently if a server sends a request from its monitoring callback upon client
+  registration, the client will receive the request before the ACK to its register
+  and it will discard it.
+  
+  - Easy access to the lwm2m_context_t from objects callbacks
+  
+  - Use an unified result callback
+  Add some parameter so that the same user callback can be used for all DM operations.
+   
+  - Use lwm2m-*-t types in er-coap-13
+  To avoid multiple conversions.
+  
+  - Switch to void* parameters in lwm2m_list_* APIs
+  
+  - Utility functions to easily implements objects
+  The utility will just use read and write individual resources. Either statically or
+  through callbacks. See [https://github.com/01org/libdmclient]/tests/mgtobj/utils/static_mo_util.h
+  

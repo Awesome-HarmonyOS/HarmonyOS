@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ksdk:examples xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd manifest.xsd">
+  <externalDefinitions>
+    <definition extID="com.nxp.mcuxpresso"/>
+    <definition extID="platform.devices.LPC51U68_CMSIS.LPC51U68"/>
+    <definition extID="platform.devices.LPC51U68_startup.LPC51U68"/>
+    <definition extID="platform.drivers.clock.LPC51U68"/>
+    <definition extID="platform.drivers.common.LPC51U68"/>
+    <definition extID="platform.drivers.flexcomm.LPC51U68"/>
+    <definition extID="platform.drivers.flexcomm_usart.LPC51U68"/>
+    <definition extID="platform.drivers.lpc_gpio.LPC51U68"/>
+    <definition extID="platform.drivers.lpc_iocon.LPC51U68"/>
+    <definition extID="platform.drivers.power.LPC51U68"/>
+    <definition extID="platform.drivers.powerlib.LPC51U68"/>
+    <definition extID="platform.drivers.reset.LPC51U68"/>
+    <definition extID="platform.utilities.assert.LPC51U68"/>
+    <definition extID="platform.utilities.debug_console.LPC51U68"/>
+    <definition extID="iar"/>
+    <definition extID="mdk"/>
+    <definition extID="kds"/>
+    <definition extID="mcuxpresso"/>
+    <definition extID="armgcc"/>
+  </externalDefinitions>
+  <example id="lpcxpresso51u68_hello_world" name="hello_world" category="demo_apps" dependency="platform.drivers.clock.LPC51U68 platform.drivers.common.LPC51U68 platform.drivers.reset.LPC51U68 platform.devices.LPC51U68_CMSIS.LPC51U68 platform.devices.LPC51U68_startup.LPC51U68 platform.drivers.flexcomm_usart.LPC51U68 platform.drivers.flexcomm.LPC51U68 platform.drivers.lpc_iocon.LPC51U68 platform.drivers.lpc_gpio.LPC51U68 platform.utilities.debug_console.LPC51U68 platform.utilities.assert.LPC51U68 platform.drivers.power.LPC51U68 platform.drivers.powerlib.LPC51U68" toolchain="iar mdk mcuxpresso armgcc">
+    <projects>
+      <project type="com.crt.advproject.projecttype.exe" nature="org.eclipse.cdt.core.cnature"/>
+    </projects>
+    <toolchainSettings>
+      <!-- Curently, mcux just supports one common settings set for both debug and release -->
+      <toolchainSetting id_refs="com.nxp.mcuxpresso">
+        <!-- asm compiler -->
+        <!-- gcc compiler -->
+        <option id="com.crt.advproject.c.misc.dialect" type="enum">
+          <value>com.crt.advproject.misc.dialect.gnu99</value>
+        </option>
+        <option id="com.crt.advproject.gcc.exe.debug.option.debugging.level" type="enum">
+          <value>gnu.c.debugging.level.default</value>
+        </option>
+        <option id="com.crt.advproject.gcc.exe.release.option.debugging.level" type="enum">
+          <value>gnu.c.debugging.level.default</value>
+        </option>
+        <option id="com.crt.advproject.gcc.exe.debug.option.optimization.level" type="enum">
+          <value>gnu.c.optimization.level.none</value>
+        </option>
+        <option id="com.crt.advproject.gcc.exe.release.option.optimization.level" type="enum">
+          <value>gnu.c.optimization.level.none</value>
+        </option>
+        <option id="gnu.c.compiler.option.preprocessor.def.symbols" type="stringList">
+          <value>CORE_M0PLUS</value>
+          <value>CPU_LPC51U68JBD64</value>
+        </option>
+        <option id="gnu.c.compiler.option.optimization.flags" type="string">
+          <value>-fno-common</value>
+        </option>
+        <option id="gnu.c.compiler.option.misc.other" type="string">
+          <value>-c  -ffunction-sections  -fdata-sections  -ffreestanding  -fno-builtin</value>
+        </option>
+        <!-- gcc linker -->
+        <option id="gnu.c.link.option.nostdlibs" type="boolean">
+          <value>true</value>
+        </option>
+        <option id="gnu.c.link.option.other" type="stringList">
+          <value>--gc-sections</value>
+        </option>
+      </toolchainSetting>
+    </toolchainSettings>
+    <source path="boards/lpcxpresso51u68/demo_apps/hello_world" target_path="board" type="c_include">
+      <files mask="board.h"/>
+      <files mask="clock_config.h"/>
+      <files mask="pin_mux.h"/>
+    </source>
+    <source path="boards/lpcxpresso51u68/demo_apps/hello_world" target_path="board" type="src">
+      <files mask="board.c"/>
+      <files mask="clock_config.c"/>
+      <files mask="pin_mux.c"/>
+    </source>
+    <source path="boards/lpcxpresso51u68/demo_apps/hello_world" target_path="doc" type="doc" toolchain="iar mdk kds mcuxpresso">
+      <files mask="readme.txt"/>
+    </source>
+    <source path="boards/lpcxpresso51u68/demo_apps/hello_world" target_path="source" type="src">
+      <files mask="hello_world.c"/>
+    </source>
+  </example>
+</ksdk:examples>

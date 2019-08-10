@@ -1,0 +1,20 @@
+Source: cmockery
+Section: libdevel
+Priority: optional
+Maintainer: Google Inc, <opensource@google.com>
+Build-Depends: debhelper (>= 4.0.0), binutils
+Standards-Version: 3.6.1
+
+Package: libcmockery-dev
+Section: libdevel
+Architecture: any
+Depends: libcmockery0 (= ${Source-Version})
+Description: The cmockery package contains a lightweight library to simplify 
+  and generalize the process of writing unit tests for C applications.
+
+Package: libcmockery0
+Section: libs
+Architecture: any
+Description: The cmockery package contains static and debug libraries and 
+  header files for the development of test applications using %name.
+

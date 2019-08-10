@@ -1,0 +1,1 @@
+gcc -Wall test1.c -o test1 -I../src ../src/MQTTConnectClient.c ../src/MQTTConnectServer.c ../src/MQTTPacket.c ../src/MQTTSerializePublish.c  ../src/MQTTDeserializePublish.c ../src/MQTTSubscribeServer.c ../src/MQTTSubscribeClient.c ../src/MQTTUnsubscribeServer.c ../src/MQTTUnsubscribeClient.c

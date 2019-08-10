@@ -1,0 +1,297 @@
+/* BEGIN_HEADER */
+#include "mbedtls/aes.h"
+/* END_HEADER */
+
+/* BEGIN_DEPENDENCIES
+ * depends_on:MBEDTLS_AES_C
+ * END_DEPENDENCIES
+ */
+
+/* BEGIN_CASE */
+void aes_encrypt_ecb( char *hex_key_string, char *hex_src_string,
+                      char *hex_dst_string, int setkey_result )
+{
+    unsigned char key_str[100];
+    unsigned char src_str[100];
+    unsigned char dst_str[100];
+    unsigned char output[100];
+    mbedtls_aes_context ctx;
+    int key_len;
+
+    memset(key_str, 0x00, 100);
+    memset(src_str, 0x00, 100);
+    memset(dst_str, 0x00, 100);
+    memset(output, 0x00, 100);
+    mbedtls_aes_init( &ctx );
+
+    key_len = unhexify( key_str, hex_key_string );
+    unhexify( src_str, hex_src_string );
+
+    TEST_ASSERT( mbedtls_aes_setkey_enc( &ctx, key_str, key_len * 8 ) == setkey_result );
+    if( setkey_result == 0 )
+    {
+        TEST_ASSERT( mbedtls_aes_crypt_ecb( &ctx, MBEDTLS_AES_ENCRYPT, src_str, output ) == 0 );
+        hexify( dst_str, output, 16 );
+
+        TEST_ASSERT( strcmp( (char *) dst_str, hex_dst_string ) == 0 );
+    }
+
+exit:
+    mbedtls_aes_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE */
+void aes_decrypt_ecb( char *hex_key_string, char *hex_src_string,
+                      char *hex_dst_string, int setkey_result )
+{
+    unsigned char key_str[100];
+    unsigned char src_str[100];
+    unsigned char dst_str[100];
+    unsigned char output[100];
+    mbedtls_aes_context ctx;
+    int key_len;
+
+    memset(key_str, 0x00, 100);
+    memset(src_str, 0x00, 100);
+    memset(dst_str, 0x00, 100);
+    memset(output, 0x00, 100);
+    mbedtls_aes_init( &ctx );
+
+    key_len = unhexify( key_str, hex_key_string );
+    unhexify( src_str, hex_src_string );
+
+    TEST_ASSERT( mbedtls_aes_setkey_dec( &ctx, key_str, key_len * 8 ) == setkey_result );
+    if( setkey_result == 0 )
+    {
+        TEST_ASSERT( mbedtls_aes_crypt_ecb( &ctx, MBEDTLS_AES_DECRYPT, src_str, output ) == 0 );
+        hexify( dst_str, output, 16 );
+
+        TEST_ASSERT( strcmp( (char *) dst_str, hex_dst_string ) == 0 );
+    }
+
+exit:
+    mbedtls_aes_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE depends_on:MBEDTLS_CIPHER_MODE_CBC */
+void aes_encrypt_cbc( char *hex_key_string, char *hex_iv_string,
+                      char *hex_src_string, char *hex_dst_string,
+                      int cbc_result )
+{
+    unsigned char key_str[100];
+    unsigned char iv_str[100];
+    unsigned char src_str[100];
+    unsigned char dst_str[100];
+    unsigned char output[100];
+    mbedtls_aes_context ctx;
+    int key_len, data_len;
+
+    memset(key_str, 0x00, 100);
+    memset(iv_str, 0x00, 100);
+    memset(src_str, 0x00, 100);
+    memset(dst_str, 0x00, 100);
+    memset(output, 0x00, 100);
+    mbedtls_aes_init( &ctx );
+
+    key_len = unhexify( key_str, hex_key_string );
+    unhexify( iv_str, hex_iv_string );
+    data_len = unhexify( src_str, hex_src_string );
+
+    mbedtls_aes_setkey_enc( &ctx, key_str, key_len * 8 );
+    TEST_ASSERT( mbedtls_aes_crypt_cbc( &ctx, MBEDTLS_AES_ENCRYPT, data_len, iv_str, src_str, output ) == cbc_result );
+    if( cbc_result == 0 )
+    {
+        hexify( dst_str, output, data_len );
+
+        TEST_ASSERT( strcmp( (char *) dst_str, hex_dst_string ) == 0 );
+    }
+
+exit:
+    mbedtls_aes_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE depends_on:MBEDTLS_CIPHER_MODE_CBC */
+void aes_decrypt_cbc( char *hex_key_string, char *hex_iv_string,
+                      char *hex_src_string, char *hex_dst_string,
+                      int cbc_result )
+{
+    unsigned char key_str[100];
+    unsigned char iv_str[100];
+    unsigned char src_str[100];
+    unsigned char dst_str[100];
+    unsigned char output[100];
+    mbedtls_aes_context ctx;
+    int key_len, data_len;
+
+    memset(key_str, 0x00, 100);
+    memset(iv_str, 0x00, 100);
+    memset(src_str, 0x00, 100);
+    memset(dst_str, 0x00, 100);
+    memset(output, 0x00, 100);
+    mbedtls_aes_init( &ctx );
+
+    key_len = unhexify( key_str, hex_key_string );
+    unhexify( iv_str, hex_iv_string );
+    data_len = unhexify( src_str, hex_src_string );
+
+    mbedtls_aes_setkey_dec( &ctx, key_str, key_len * 8 );
+    TEST_ASSERT( mbedtls_aes_crypt_cbc( &ctx, MBEDTLS_AES_DECRYPT, data_len, iv_str, src_str, output ) == cbc_result );
+    if( cbc_result == 0)
+    {
+        hexify( dst_str, output, data_len );
+
+        TEST_ASSERT( strcmp( (char *) dst_str, hex_dst_string ) == 0 );
+    }
+
+exit:
+    mbedtls_aes_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE depends_on:MBEDTLS_CIPHER_MODE_CFB */
+void aes_encrypt_cfb128( char *hex_key_string, char *hex_iv_string,
+                         char *hex_src_string, char *hex_dst_string )
+{
+    unsigned char key_str[100];
+    unsigned char iv_str[100];
+    unsigned char src_str[100];
+    unsigned char dst_str[100];
+    unsigned char output[100];
+    mbedtls_aes_context ctx;
+    size_t iv_offset = 0;
+    int key_len;
+
+    memset(key_str, 0x00, 100);
+    memset(iv_str, 0x00, 100);
+    memset(src_str, 0x00, 100);
+    memset(dst_str, 0x00, 100);
+    memset(output, 0x00, 100);
+    mbedtls_aes_init( &ctx );
+
+    key_len = unhexify( key_str, hex_key_string );
+    unhexify( iv_str, hex_iv_string );
+    unhexify( src_str, hex_src_string );
+
+    mbedtls_aes_setkey_enc( &ctx, key_str, key_len * 8 );
+    TEST_ASSERT( mbedtls_aes_crypt_cfb128( &ctx, MBEDTLS_AES_ENCRYPT, 16, &iv_offset, iv_str, src_str, output ) == 0 );
+    hexify( dst_str, output, 16 );
+
+    TEST_ASSERT( strcmp( (char *) dst_str, hex_dst_string ) == 0 );
+
+exit:
+    mbedtls_aes_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE depends_on:MBEDTLS_CIPHER_MODE_CFB */
+void aes_decrypt_cfb128( char *hex_key_string, char *hex_iv_string,
+                         char *hex_src_string, char *hex_dst_string )
+{
+    unsigned char key_str[100];
+    unsigned char iv_str[100];
+    unsigned char src_str[100];
+    unsigned char dst_str[100];
+    unsigned char output[100];
+    mbedtls_aes_context ctx;
+    size_t iv_offset = 0;
+    int key_len;
+
+    memset(key_str, 0x00, 100);
+    memset(iv_str, 0x00, 100);
+    memset(src_str, 0x00, 100);
+    memset(dst_str, 0x00, 100);
+    memset(output, 0x00, 100);
+    mbedtls_aes_init( &ctx );
+
+    key_len = unhexify( key_str, hex_key_string );
+    unhexify( iv_str, hex_iv_string );
+    unhexify( src_str, hex_src_string );
+
+    mbedtls_aes_setkey_enc( &ctx, key_str, key_len * 8 );
+    TEST_ASSERT( mbedtls_aes_crypt_cfb128( &ctx, MBEDTLS_AES_DECRYPT, 16, &iv_offset, iv_str, src_str, output ) == 0 );
+    hexify( dst_str, output, 16 );
+
+    TEST_ASSERT( strcmp( (char *) dst_str, hex_dst_string ) == 0 );
+
+exit:
+    mbedtls_aes_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE depends_on:MBEDTLS_CIPHER_MODE_CFB */
+void aes_encrypt_cfb8( char *hex_key_string, char *hex_iv_string,
+                       char *hex_src_string, char *hex_dst_string )
+{
+    unsigned char key_str[100];
+    unsigned char iv_str[100];
+    unsigned char src_str[100];
+    unsigned char dst_str[100];
+    unsigned char output[100];
+    mbedtls_aes_context ctx;
+    int key_len, src_len;
+
+    memset(key_str, 0x00, 100);
+    memset(iv_str, 0x00, 100);
+    memset(src_str, 0x00, 100);
+    memset(dst_str, 0x00, 100);
+    memset(output, 0x00, 100);
+    mbedtls_aes_init( &ctx );
+
+    key_len = unhexify( key_str, hex_key_string );
+    unhexify( iv_str, hex_iv_string );
+    src_len = unhexify( src_str, hex_src_string );
+
+    mbedtls_aes_setkey_enc( &ctx, key_str, key_len * 8 );
+    TEST_ASSERT( mbedtls_aes_crypt_cfb8( &ctx, MBEDTLS_AES_ENCRYPT, src_len, iv_str, src_str, output ) == 0 );
+    hexify( dst_str, output, src_len );
+
+    TEST_ASSERT( strcmp( (char *) dst_str, hex_dst_string ) == 0 );
+
+exit:
+    mbedtls_aes_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE depends_on:MBEDTLS_CIPHER_MODE_CFB */
+void aes_decrypt_cfb8( char *hex_key_string, char *hex_iv_string,
+                       char *hex_src_string, char *hex_dst_string )
+{
+    unsigned char key_str[100];
+    unsigned char iv_str[100];
+    unsigned char src_str[100];
+    unsigned char dst_str[100];
+    unsigned char output[100];
+    mbedtls_aes_context ctx;
+    int key_len, src_len;
+
+    memset(key_str, 0x00, 100);
+    memset(iv_str, 0x00, 100);
+    memset(src_str, 0x00, 100);
+    memset(dst_str, 0x00, 100);
+    memset(output, 0x00, 100);
+    mbedtls_aes_init( &ctx );
+
+    key_len = unhexify( key_str, hex_key_string );
+    unhexify( iv_str, hex_iv_string );
+    src_len = unhexify( src_str, hex_src_string );
+
+    mbedtls_aes_setkey_enc( &ctx, key_str, key_len * 8 );
+    TEST_ASSERT( mbedtls_aes_crypt_cfb8( &ctx, MBEDTLS_AES_DECRYPT, src_len, iv_str, src_str, output ) == 0 );
+    hexify( dst_str, output, src_len );
+
+    TEST_ASSERT( strcmp( (char *) dst_str, hex_dst_string ) == 0 );
+
+exit:
+    mbedtls_aes_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE depends_on:MBEDTLS_SELF_TEST */
+void aes_selftest()
+{
+    TEST_ASSERT( mbedtls_aes_self_test( 1 ) == 0 );
+}
+/* END_CASE */

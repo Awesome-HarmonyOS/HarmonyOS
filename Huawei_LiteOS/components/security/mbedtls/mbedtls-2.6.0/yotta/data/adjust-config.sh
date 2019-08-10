@@ -1,0 +1,77 @@
+#!/bin/sh
+
+set -eu
+
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 path/to/config.pl path/to/config.h" >&2
+    exit 1
+fi
+
+SCRIPT=$1
+FILE=$2
+
+conf() {
+    $SCRIPT -f $FILE $@
+}
+
+
+# Set the target specific header
+conf set YOTTA_CFG_MBEDTLS_TARGET_CONFIG_FILE \"mbedtls/target_config.h\"
+
+# not supported on mbed OS, nor used by mbed Client
+conf unset MBEDTLS_NET_C
+conf unset MBEDTLS_TIMING_C
+
+# not supported on all targets with mbed OS, nor used by mbed Client
+conf unset MBEDTLS_FS_IO
+
+conf unset MBEDTLS_CIPHER_MODE_CFB
+conf unset MBEDTLS_CIPHER_MODE_CTR
+conf unset MBEDTLS_CIPHER_PADDING_ONE_AND_ZEROS
+conf unset MBEDTLS_CIPHER_PADDING_ZEROS_AND_LEN
+conf unset MBEDTLS_CIPHER_PADDING_ZEROS
+conf unset MBEDTLS_ECP_DP_SECP192R1_ENABLED
+conf unset MBEDTLS_ECP_DP_SECP224R1_ENABLED
+conf unset MBEDTLS_ECP_DP_SECP521R1_ENABLED
+conf unset MBEDTLS_ECP_DP_SECP192K1_ENABLED
+conf unset MBEDTLS_ECP_DP_SECP224K1_ENABLED
+conf unset MBEDTLS_ECP_DP_SECP256K1_ENABLED
+conf unset MBEDTLS_ECP_DP_BP256R1_ENABLED
+conf unset MBEDTLS_ECP_DP_BP384R1_ENABLED
+conf unset MBEDTLS_ECP_DP_BP512R1_ENABLED
+conf unset MBEDTLS_PK_PARSE_EC_EXTENDED
+
+conf unset MBEDTLS_AESNI_C
+conf unset MBEDTLS_ARC4_C
+conf unset MBEDTLS_BLOWFISH_C
+conf unset MBEDTLS_CAMELLIA_C
+conf unset MBEDTLS_DES_C
+conf unset MBEDTLS_DHM_C
+conf unset MBEDTLS_GENPRIME
+conf unset MBEDTLS_MD5_C
+conf unset MBEDTLS_PADLOCK_C
+conf unset MBEDTLS_PEM_WRITE_C
+conf unset MBEDTLS_PKCS5_C
+conf unset MBEDTLS_PKCS12_C
+conf unset MBEDTLS_RIPEMD160_C
+conf unset MBEDTLS_SHA1_C
+conf unset MBEDTLS_XTEA_C
+
+conf unset MBEDTLS_X509_RSASSA_PSS_SUPPORT
+
+conf unset MBEDTLS_X509_CSR_PARSE_C
+conf unset MBEDTLS_X509_CREATE_C
+conf unset MBEDTLS_X509_CRT_WRITE_C
+conf unset MBEDTLS_X509_CSR_WRITE_C
+
+conf unset MBEDTLS_KEY_EXCHANGE_DHE_PSK_ENABLED
+conf unset MBEDTLS_KEY_EXCHANGE_RSA_PSK_ENABLED
+conf unset MBEDTLS_KEY_EXCHANGE_RSA_ENABLED
+conf unset MBEDTLS_KEY_EXCHANGE_DHE_RSA_ENABLED
+conf unset MBEDTLS_KEY_EXCHANGE_ECDH_ECDSA_ENABLED
+conf unset MBEDTLS_KEY_EXCHANGE_ECDH_RSA_ENABLED
+conf unset MBEDTLS_SSL_FALLBACK_SCSV
+conf unset MBEDTLS_SSL_CBC_RECORD_SPLITTING
+conf unset MBEDTLS_SSL_PROTO_TLS1
+conf unset MBEDTLS_SSL_PROTO_TLS1_1
+conf unset MBEDTLS_SSL_TRUNCATED_HMAC

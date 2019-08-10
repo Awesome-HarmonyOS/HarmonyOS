@@ -1,0 +1,7 @@
+cmockery (0.1-2) unstable; urgency=low
+   * cmockery: version 0.12
+     Made it possible to specify additional compiler, lib tool and link 
+     flags on Windows.
+     Added Windows makefile to the tar ball.
+
+ -- Google Inc. <opensource@google.com>  Mon, 28 Aug 2008 17:43:20 -0700

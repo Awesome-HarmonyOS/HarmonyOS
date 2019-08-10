@@ -1,0 +1,2 @@
+export TRAVIS_OS_NAME=linux
+export TRAVIS_BUILD_DIR=/home/icraggs/git/paho.mqtt.embedded-c

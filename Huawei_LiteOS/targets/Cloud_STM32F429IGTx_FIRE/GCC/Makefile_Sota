@@ -1,0 +1,187 @@
+##########################################################################################################################
+# Cloud_STM32F429IGTx_FIRE GCC compiler Makefile
+##########################################################################################################################
+
+# ------------------------------------------------
+# Generate sota lib (based on gcc)
+# ------------------------------------------------
+
+######################################
+# target
+######################################
+TARGET = libsota
+######################################
+# building variables
+######################################
+# debug build?
+DEBUG = 0
+# optimization
+OPT = -Og
+
+#######################################
+# configuration
+#######################################
+OTA_IS_NEED_DTLS := yes
+ifeq ($(OTA_IS_NEED_DTLS), yes)
+	OTA_PACK_CHECKSUM := CHECKSUM_SHA256_RSA2048   #(CHECKSUM_SHA256, CHECKSUM_SHA256_RSA2048)
+else
+	OTA_PACK_CHECKSUM := CHECKSUM_NONE
+endif
+#######################################
+
+#######################################
+# binaries
+#######################################
+PREFIX    = arm-none-eabi-
+CC        = $(PREFIX)gcc
+AS        = $(PREFIX)gcc -x assembler-with-cpp
+OBJCOPY   = $(PREFIX)objcopy
+OBJDUMP   = $(PREFIX)objdump
+AR        = $(PREFIX)ar
+SZ        = $(PREFIX)size
+LD        = $(PREFIX)ld
+HEX       = $(OBJCOPY) -O ihex
+BIN       = $(OBJCOPY) -O binary -S
+
+
+PROJECTBASE = $(PWD)
+override PROJECTBASE    := $(abspath $(PROJECTBASE))
+TOP_DIR = $(PROJECTBASE)/../../..
+
+
+#######################################
+# paths
+#######################################
+# firmware library path
+PERIFLIB_PATH =
+
+# Build path
+BUILD_DIR = build
+HWPATCH_BUILD_DIR = hwpatch
+
+# Lib path
+LIBDIR = $(PROJECTBASE)/../Lib
+
+######################################
+# source
+######################################
+
+# C sources
+
+ifeq ($(OTA_IS_NEED_DTLS), yes)
+MBEDTLS_SRC = \
+		${wildcard $(TOP_DIR)/components/security/mbedtls/mbedtls-2.6.0/library/*.c}
+		C_SOURCES += $(MBEDTLS_SRC)
+endif
+
+SOTA_SRC = \
+		${wildcard $(TOP_DIR)/components/ota/sota/*.c}
+		C_SOURCES += $(SOTA_SRC)
+
+OTA_SRC = \
+		${wildcard  $(TOP_DIR)/components/ota/flag_operate/*.c} \
+		${wildcard  $(TOP_DIR)/components/ota/package/*.c}
+		C_SOURCES += $(OTA_SRC)
+
+
+######################################
+# firmware library
+######################################
+PERIFLIB_SOURCES =
+
+
+#######################################
+# CFLAGS
+#######################################
+# cpu
+CPU = -mcpu=cortex-m4
+# fpu
+FPU = -mfpu=fpv4-sp-d16
+# float-abi
+FLOAT-ABI = -mfloat-abi=hard
+# mcu
+MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
+
+# macros for gcc
+
+# C defines
+C_DEFS =
+
+ifeq ($(OTA_IS_NEED_DTLS), yes)
+		C_DEFS += -D WITH_SOTA
+		C_DEFS += -D MBEDTLS_CONFIG_FILE=\"los_mbedtls_config.h\"
+endif
+
+ifeq ($(OTA_PACK_CHECKSUM), CHECKSUM_NONE)
+		C_DEFS += -D PACK_CHECKSUM=2
+else ifeq ($(OTA_PACK_CHECKSUM), CHECKSUM_SHA256)
+		C_DEFS += -D PACK_CHECKSUM=1
+else ifeq ($(OTA_PACK_CHECKSUM), CHECKSUM_SHA256_RSA2048)
+		C_DEFS += -D PACK_CHECKSUM=0
+else
+endif
+
+
+# C includes
+
+INCLUDE_INC = \
+        -I $(TOP_DIR)/include
+        C_INCLUDES += $(INCLUDE_INC)
+
+OTA_INC = \
+		-I $(TOP_DIR)/components/ota/flag_operate \
+		-I $(TOP_DIR)/components/ota/utility
+		C_INCLUDES += $(OTA_INC)
+
+MBEDTLS_INC = \
+		-I $(TOP_DIR)/components/security/mbedtls/mbedtls-2.6.0/include
+		C_INCLUDES += $(MBEDTLS_INC)
+
+MBEDTLS_PORT_INC = \
+		-I $(TOP_DIR)/components/security/mbedtls/mbedtls_port
+		C_INCLUDES += $(MBEDTLS_PORT_INC)
+
+
+# compile gcc flags
+CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
+
+ifeq ($(DEBUG), 1)
+CFLAGS += -g -gdwarf-2
+endif
+
+
+# Generate dependency information
+CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$@"
+
+
+# default action: build all
+all: $(BUILD_DIR)/$(HWPATCH_BUILD_DIR)/%.o $(BUILD_DIR)/$(TARGET).a
+
+
+#######################################
+# build the sota lib
+#######################################
+# list of objects
+OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.o)))
+vpath %.c $(sort $(dir $(C_SOURCES)))
+
+
+$(BUILD_DIR)/%.o: %.c | $(BUILD_DIR)
+	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
+
+$(BUILD_DIR)/$(HWPATCH_BUILD_DIR)/%.o: $(LIBDIR)/libhwpatch.a | $(BUILD_DIR)
+	cd $(BUILD_DIR)/$(HWPATCH_BUILD_DIR) && $(AR) -x $<
+
+$(BUILD_DIR)/$(TARGET).a: $(OBJECTS) $(BUILD_DIR)/$(HWPATCH_BUILD_DIR)/*.o
+	$(AR) -r -o $@ $^ && cp $(BUILD_DIR)/$(TARGET).a $(LIBDIR)/$(TARGET).a
+	$(SZ) $@
+
+
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)/$(HWPATCH_BUILD_DIR)
+
+#######################################
+# clean up
+#######################################
+clean:
+		-rm -fR .dep $(BUILD_DIR) $(LIBDIR)/$(TARGET).a

@@ -1,0 +1,3 @@
+gcc -g -Wall pub0sub1_nb.c transport.c -I ../../src ../../src/MQTTConnectClient.c ../../src/MQTTSerializePublish.c ../../src/MQTTPacket.c ../../src/MQTTSubscribeClient.c -o pub0sub1_nb ../../src/MQTTDeserializePublish.c ../../src/MQTTConnectServer.c ../../src/MQTTSubscribeServer.c ../../src/MQTTUnsubscribeServer.c ../../src/MQTTUnsubscribeClient.c
+gcc -g -Wall ping_nb.c transport.c -I ../../src ../../src/MQTTConnectClient.c ../../src/MQTTPacket.c -o ping_nb
+

@@ -1,0 +1,310 @@
+/* BEGIN_HEADER */
+#include "mbedtls/cipher.h"
+#include "mbedtls/cmac.h"
+/* END_HEADER */
+
+/* BEGIN_DEPENDENCIES
+ * depends_on:MBEDTLS_CMAC_C
+ * END_DEPENDENCIES
+ */
+
+/* BEGIN_CASE depends_on:MBEDTLS_SELF_TEST */
+void mbedtls_cmac_self_test( )
+{
+    TEST_ASSERT( mbedtls_cmac_self_test( 1 ) == 0 );
+}
+/* END_CASE */
+
+/* BEGIN_CASE */
+void mbedtls_cmac_null_args( )
+{
+    mbedtls_cipher_context_t ctx;
+    const mbedtls_cipher_info_t *cipher_info;
+    unsigned char test_key[MBEDTLS_CIPHER_BLKSIZE_MAX];
+    unsigned char test_data[MBEDTLS_CIPHER_BLKSIZE_MAX];
+    unsigned char test_output[MBEDTLS_CIPHER_BLKSIZE_MAX];
+
+    mbedtls_cipher_init( &ctx );
+
+    /* Test NULL cipher info */
+    TEST_ASSERT( mbedtls_cipher_cmac_update( &ctx, test_data, 16 ) ==
+                                         MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA );
+
+    cipher_info = mbedtls_cipher_info_from_type( MBEDTLS_CIPHER_AES_128_ECB );
+    TEST_ASSERT( mbedtls_cipher_setup( &ctx, cipher_info ) == 0 );
+
+    TEST_ASSERT( mbedtls_cipher_cmac_starts( NULL, test_key, 128 ) ==
+                                         MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA );
+
+    TEST_ASSERT( mbedtls_cipher_cmac_starts( &ctx, NULL, 128 ) ==
+                                         MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA );
+
+    TEST_ASSERT( mbedtls_cipher_cmac_update( NULL, test_data, 16 ) ==
+                                         MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA );
+
+    TEST_ASSERT( mbedtls_cipher_cmac_update( &ctx, NULL, 16 ) ==
+                                         MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA );
+
+    TEST_ASSERT( mbedtls_cipher_cmac_finish( NULL, test_output ) ==
+                                         MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA );
+
+    TEST_ASSERT( mbedtls_cipher_cmac_finish( &ctx, NULL ) ==
+                                         MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA );
+
+    TEST_ASSERT( mbedtls_cipher_cmac_reset( NULL ) ==
+                                         MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA );
+
+    TEST_ASSERT( mbedtls_cipher_cmac( NULL,
+                                      test_key, 128,
+                                      test_data, 16,
+                                      test_output ) ==
+                                            MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA );
+
+    TEST_ASSERT( mbedtls_cipher_cmac( cipher_info,
+                                      NULL, 128,
+                                      test_data, 16,
+                                      test_output ) ==
+                                            MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA );
+
+    TEST_ASSERT( mbedtls_cipher_cmac( cipher_info,
+                                      test_key, 128,
+                                      NULL, 16,
+                                      test_output ) ==
+                                            MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA );
+
+    TEST_ASSERT( mbedtls_cipher_cmac( cipher_info,
+                                      test_key, 128,
+                                      test_data, 16,
+                                      NULL ) ==
+                                            MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA );
+
+    TEST_ASSERT( mbedtls_aes_cmac_prf_128( NULL, 16,
+                                           test_data, 16,
+                                           test_output ) ==
+                                           MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA );
+
+    TEST_ASSERT( mbedtls_aes_cmac_prf_128( test_key, 16,
+                                           NULL, 16,
+                                           test_output ) ==
+                                              MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA );
+
+    TEST_ASSERT( mbedtls_aes_cmac_prf_128( test_key, 16,
+                                           test_data, 16,
+                                           NULL ) ==
+                                              MBEDTLS_ERR_CIPHER_BAD_INPUT_DATA );
+
+exit:
+    mbedtls_cipher_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE */
+void mbedtls_cmac_setkey( int cipher_type, int key_size,
+                          int result )
+{
+    const mbedtls_cipher_info_t *cipher_info;
+    unsigned char key[32];
+    unsigned char buf[16];
+    unsigned char tmp[16];
+
+    memset( key, 0x2A, sizeof( key ) );
+    TEST_ASSERT( (unsigned) key_size <= 8 * sizeof( key ) );
+
+    TEST_ASSERT( ( cipher_info = mbedtls_cipher_info_from_type( cipher_type ) )
+                    != NULL );
+
+    memset( buf, 0x2A, sizeof( buf ) );
+    TEST_ASSERT( ( result == mbedtls_cipher_cmac( cipher_info, key, key_size,
+                                                buf, 16, tmp ) ) != 0 );
+}
+/* END_CASE */
+
+/* BEGIN_CASE */
+void mbedtls_cmac_multiple_blocks( int cipher_type,
+                                   char *key_string, int keybits,
+                                   int block_size,
+                                   char *block1_string, int block1_len,
+                                   char *block2_string, int block2_len,
+                                   char *block3_string, int block3_len,
+                                   char *block4_string, int block4_len,
+                                   char *expected_result_string )
+{
+    unsigned char key[100];
+    unsigned char block1[100];
+    unsigned char block2[100];
+    unsigned char block3[100];
+    unsigned char block4[100];
+    unsigned char expected_result[100];
+    const mbedtls_cipher_info_t *cipher_info;
+    mbedtls_cipher_context_t ctx;
+    unsigned char output[MBEDTLS_CIPHER_BLKSIZE_MAX];
+
+    /* Convert the test parameters to binary data */
+    unhexify( key, key_string );
+    unhexify( block1, block1_string );
+    unhexify( block2, block2_string );
+    unhexify( block3, block3_string );
+    unhexify( block4, block4_string );
+    unhexify( expected_result, expected_result_string );
+
+    mbedtls_cipher_init( &ctx );
+
+    /* Validate the test inputs */
+    TEST_ASSERT( block1_len <= 100 );
+    TEST_ASSERT( block2_len <= 100 );
+    TEST_ASSERT( block3_len <= 100 );
+    TEST_ASSERT( block4_len <= 100 );
+
+    /* Set up */
+    TEST_ASSERT( ( cipher_info = mbedtls_cipher_info_from_type( cipher_type ) )
+                    != NULL );
+
+    TEST_ASSERT( mbedtls_cipher_setup( &ctx, cipher_info ) == 0 );
+
+    TEST_ASSERT( mbedtls_cipher_cmac_starts( &ctx,
+                                             (const unsigned char*)key,
+                                             keybits ) == 0 );
+
+    /* Multiple partial and complete blocks. A negative length means skip the
+     * update operation */
+    if( block1_len >= 0)
+        TEST_ASSERT( mbedtls_cipher_cmac_update( &ctx,
+                                                 (unsigned char*)block1,
+                                                 block1_len ) == 0);
+
+    if( block2_len >= 0 )
+        TEST_ASSERT( mbedtls_cipher_cmac_update( &ctx,
+                                                 (unsigned char*)block2,
+                                                 block2_len ) == 0);
+
+    if( block3_len >= 0 )
+        TEST_ASSERT( mbedtls_cipher_cmac_update( &ctx,
+                                                 (unsigned char*)block3,
+                                                 block3_len ) == 0);
+
+    if( block4_len >= 0 )
+        TEST_ASSERT( mbedtls_cipher_cmac_update( &ctx,
+                                                 (unsigned char*)block4,
+                                                 block4_len ) == 0);
+
+    TEST_ASSERT( mbedtls_cipher_cmac_finish( &ctx, output ) == 0 );
+
+    TEST_ASSERT( memcmp( output, expected_result, block_size )  == 0 );
+
+exit:
+    mbedtls_cipher_free( &ctx );
+}
+/* END_CASE */
+
+/* BEGIN_CASE */
+void mbedtls_cmac_multiple_operations_same_key( int cipher_type,
+                                   char *key_string, int keybits,
+                                   int block_size,
+                                   char *block_a1_string, int block_a1_len,
+                                   char *block_a2_string, int block_a2_len,
+                                   char *block_a3_string, int block_a3_len,
+                                   char *expected_result_a_string,
+                                   char *block_b1_string, int block_b1_len,
+                                   char *block_b2_string, int block_b2_len,
+                                   char *block_b3_string, int block_b3_len,
+                                   char *expected_result_b_string )
+{
+    unsigned char key[100];
+    unsigned char block_a1[100];
+    unsigned char block_a2[100];
+    unsigned char block_a3[100];
+    unsigned char block_b1[100];
+    unsigned char block_b2[100];
+    unsigned char block_b3[100];
+    unsigned char expected_result_a[100], expected_result_b[100];
+    const mbedtls_cipher_info_t *cipher_info;
+    mbedtls_cipher_context_t ctx;
+    unsigned char output[MBEDTLS_CIPHER_BLKSIZE_MAX];
+
+    /* Convert the test parameters to binary data */
+    unhexify( key, key_string );
+    unhexify( block_a1, block_a1_string );
+    unhexify( block_a2, block_a2_string );
+    unhexify( block_a3, block_a3_string );
+
+    unhexify( block_b1, block_b1_string );
+    unhexify( block_b2, block_b2_string );
+    unhexify( block_b3, block_b3_string );
+
+    unhexify( expected_result_a, expected_result_a_string );
+    unhexify( expected_result_b, expected_result_b_string );
+
+    mbedtls_cipher_init( &ctx );
+
+    /* Validate the test inputs */
+    TEST_ASSERT( block_a1_len <= 100 );
+    TEST_ASSERT( block_a2_len <= 100 );
+    TEST_ASSERT( block_a3_len <= 100 );
+
+    TEST_ASSERT( block_b1_len <= 100 );
+    TEST_ASSERT( block_b2_len <= 100 );
+    TEST_ASSERT( block_b3_len <= 100 );
+
+    /* Set up */
+    TEST_ASSERT( ( cipher_info = mbedtls_cipher_info_from_type( cipher_type ) )
+                    != NULL );
+
+    TEST_ASSERT( mbedtls_cipher_setup( &ctx, cipher_info ) == 0 );
+
+    TEST_ASSERT( mbedtls_cipher_cmac_starts( &ctx,
+                                             (const unsigned char*)key,
+                                             keybits ) == 0 );
+
+    /* Sequence A */
+
+    /* Multiple partial and complete blocks. A negative length means skip the
+     * update operation */
+    if( block_a1_len >= 0 )
+        TEST_ASSERT( mbedtls_cipher_cmac_update( &ctx,
+                                                 (unsigned char*)block_a1,
+                                                 block_a1_len ) == 0);
+
+    if( block_a2_len >= 0 )
+        TEST_ASSERT( mbedtls_cipher_cmac_update( &ctx,
+                                                 (unsigned char*)block_a2,
+                                                 block_a2_len ) == 0);
+
+    if( block_a3_len >= 0 )
+        TEST_ASSERT( mbedtls_cipher_cmac_update( &ctx,
+                                                 (unsigned char*)block_a3,
+                                                  block_a3_len ) == 0);
+
+    TEST_ASSERT( mbedtls_cipher_cmac_finish( &ctx, output ) == 0 );
+
+    TEST_ASSERT( memcmp( output, expected_result_a, block_size )  == 0 );
+
+    TEST_ASSERT( mbedtls_cipher_cmac_reset( &ctx ) == 0 );
+
+    /* Sequence B */
+
+    /* Multiple partial and complete blocks. A negative length means skip the
+     * update operation */
+    if( block_b1_len >= 0)
+        TEST_ASSERT( mbedtls_cipher_cmac_update( &ctx,
+                                                 (unsigned char*)block_b1,
+                                                 block_b1_len ) == 0);
+
+    if( block_b2_len >= 0 )
+        TEST_ASSERT( mbedtls_cipher_cmac_update( &ctx,
+                                                 (unsigned char*)block_b2,
+                                                 block_b2_len ) == 0);
+
+    if( block_b3_len >= 0 )
+        TEST_ASSERT( mbedtls_cipher_cmac_update( &ctx,
+                                                 (unsigned char*)block_b3,
+                                                 block_b3_len ) == 0);
+
+    TEST_ASSERT( mbedtls_cipher_cmac_finish( &ctx, output ) == 0 );
+
+    TEST_ASSERT( memcmp( output, expected_result_b, block_size )  == 0 );
+
+exit:
+    mbedtls_cipher_free( &ctx );
+}
+/* END_CASE */
+
