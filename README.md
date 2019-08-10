@@ -80,7 +80,7 @@ HarmonyOS is a realtime, modular, microkernel operating system.
 - [Ark] HongMeng is an Android-app compatible operating system, Ark compiler can improve Android system operation fluency by 24%, response speed by 44%, and the smoothness of the third-party application up to 60%.
 #### SDK
 #### IDE
-
+- [LiteOS IDE][Huawei LiteOS Studio](https://static.huaweicloud.com/upload/files/sdk/LiteOS_IDE.zip)
 
 ### Community
 - [Questions]
