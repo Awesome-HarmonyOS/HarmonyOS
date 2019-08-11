@@ -62,7 +62,7 @@ HarmonyOS is a realtime, modular, microkernel operating system.
 ## Hardware drivers
 - [Device compatibility]
 - [Standards & Protocols] 
-- [Hareware Quality Specification]
+- [Hardware Quality Specification]
 - [Driver Development Kit]
 - [Driver Samples]
 - [Debugging Tools]
