@@ -6,7 +6,7 @@
 ![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg) 
 
 <p align="center">
-  <a href="https://github.com/leisim/awesome-fuchsia">
+  <a href="https://github.com/Awesome-HarmonyOS/HarmonyOS">
     <img src="assets/img/hi.jpg" width="750px">
   </a>
 </p>
@@ -16,14 +16,14 @@
 > A curated list of awesome things related to HarmonyOS
 
 
-# Ⅰ What is HarmonyOS?
+# Ⅰ . What is HarmonyOS?
 `HormonyOS` is the first full-scene distributed OS based on micro-kernel. It is an operating system independently developed by Huawei. On August 9, 2019, `HormonyOS` System was officially released at the Huawei Developers Conference (<HDC.2019>). Huawei will take the lead in deploying intelligent terminals such as smart screens, vehicle terminals and wearable terminals. In the future, more and more intelligent devices will use open source `HormonyOS` .
 
 `HormonyOS` achieves modular coupling, which corresponds to flexible deployment of different devices. `HormonyOS` has three layers of architecture. The first layer is the core, the second layer is the basic services, and the third layer is the program framework. It can be used in large screen, PC, automobile and other different equipment. It can also be used on mobile phones at any time, but for the time being, Huawei still prefers Android.
 
 The underlying layer of HormonyOS is composed of  `HormonyOS micro kernel`, `Linux kernel` and `Lite OS` and it will become a complete hongmeng micro kernel architecture in the future.
 
-# Ⅱ Development process
+# Ⅱ . Development process
 
 - [2012] HarmonyOS started out in Shanghai’s Jiao Tong University in 2012. 
 - [2018.8.24] Huawei applied for the `Huawei HormonyOS` trademark. The registration announcement date of `HormonyOS` trademark is May 14, 2019. The exclusive rights of `HormonyOS` trademark are from May 14, 2019 to May 13, 2029.
@@ -31,7 +31,7 @@ The underlying layer of HormonyOS is composed of  `HormonyOS micro kernel`, `Lin
 - [2019.5.17] Huawei Operating System Team developed its own proprietary operating system `HormonyOS`.
 - [2019.8.9]  Huawei officially released `HormonyOS`, and `HormonyOS` Operating System will be open source.
 
-# Ⅲ Features
+# Ⅲ . Features
 ![](assets/img/harmony/features.png)
 
 HormonyOS is designed to meet the high standard connection requirements of full-scene intelligent experience. For this reason, Huawei has proposed four system solutions with major features.
@@ -63,7 +63,7 @@ HormonyOS applies microkernel technology to Trusted Execution Environment (TEE),
 HormonyOS relies on multi-terminal development IDE, multi-language unified compilation, distributed architecture Kit to provide screen layout control and interactive automatic adaptation, support control dragging, preview-oriented visual programming, so that developers can efficiently build multi-terminal automatic running App based on the same project, to achieve a real one-time development, multi-terminal. Deployment to achieve shared ecology across devices. Huawei Ark Compiler is the first static compiler to replace the Android virtual machine model, which allows developers to compile high-level languages into machine code at one time in the development environment. In addition, the Ark Compiler will support multi-language unified compilation in the future, which can greatly improve the development efficiency.
 
 
-# Resources
+# IV . Resources
 
 
 ## 1. Official Resources
