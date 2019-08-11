@@ -1,4 +1,5 @@
 # HarmonyOS
+![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg) [English Docs](README.md)|[中文文档](doc/README-zh.md)
 
 <p align="center">
   <a href="https://github.com/leisim/awesome-fuchsia">
@@ -10,40 +11,58 @@
 
 > A curated list of awesome things related to HarmonyOS
 
-# 系统简介
-- 鸿蒙系统是基于微内核的全场景分布式OS，可按需扩展，实现更广泛的系统安全，主要用于物联网，特点是低时延，甚至可到毫秒级乃至亚毫秒级。 
-- 鸿蒙OS实现模块化耦合，对应不同设备可弹性部署，鸿蒙OS有三层架构，第一层是内核，第二层是基础服务，第三层是程序框架 。可用于大屏、PC、汽车等各种不同的设备上。还可以随时用在手机上，但暂时华为手机端依然优先使用安卓。
-- 鸿蒙 OS 底层由鸿蒙微内核、Linux 内核、[Lite OS](https://github.com/Awesome-HarmonyOS/HarmonyOS/tree/master/Huawei_LiteOS) 组成，未来将发展为完全的鸿蒙微内核架构。
 
-# 发展历程
-- 2012年，华为开始规划自有操作系统“鸿蒙”。 
-- 2019年5月24日，国家知识产权局商标局网站显示，华为已申请“华为鸿蒙”商标，申请日期是2018年8月24日，注册公告日期是2019年5月14日，专用权限期是从2019年5月14日到2029年5月13日。
-- 2019年5月17日，由某教授领导的华为操作系统团队开发了自主产权操作系统——鸿蒙。 
-- 2019年8月9日，华为正式发布鸿蒙系统余承东介绍，鸿蒙操作系统开源。
+# Ⅰ What is HarmonyOS?
+`HormonyOS` is the first full-scene distributed OS based on micro-kernel. It is an operating system independently developed by Huawei. On August 9, 2019, `HormonyOS` System was officially released at the Huawei Developers Conference (<HDC.2019>). Huawei will take the lead in deploying intelligent terminals such as smart screens, vehicle terminals and wearable terminals. In the future, more and more intelligent devices will use open source `HormonyOS` .
 
-# 技术特性
-- 分布式架构首次用于终端OS，实现跨终端无缝协同体验；
-- 确定时延引擎和高性能IPC技术实现系统天生流畅；
-- 基于微内核架构重塑终端设备可信安全；
-- 通过统一IDE支撑一次开发，多端部署，实现跨终端生态共享。
+`HormonyOS` achieves modular coupling, which corresponds to flexible deployment of different devices. `HormonyOS` has three layers of architecture. The first layer is the core, the second layer is the basic services, and the third layer is the program framework. It can be used in large screen, PC, automobile and other different equipment. It can also be used on mobile phones at any time, but for the time being, Huawei still prefers Android.
 
-# What is HarmonyOS?
-HarmonyOS is a realtime, modular, microkernel operating system. 
+The underlying layer of HormonyOS is composed of  `HormonyOS micro kernel`, `Linux kernel` and `Lite OS` and it will become a complete hongmeng micro kernel architecture in the future.
 
-### Development Courses
+# Ⅱ Development process
 
 - [2012] HarmonyOS started out in Shanghai’s Jiao Tong University in 2012. 
-- [2015] 由HarmonyOS内核研发的操作系统部署应用在运营商、互联网企业、政府部门、大型云计算中心等30余家大型单位，支撑了在600余家数据中心关键业务系统。
-- [2018] Huawei filed for the "HarmonyOS" trademark in China in August 2018.
+- [2018.8.24] Huawei applied for the `Huawei HormonyOS` trademark. The registration announcement date of `HormonyOS` trademark is May 14, 2019. The exclusive rights of `HormonyOS` trademark are from May 14, 2019 to May 13, 2029.
 - [2019] Huawei has allegedly shipped 1 million smartphones with its self-developed "HarmonyOS" operating system onboard for testing.
+- [2019.5.17] Huawei Operating System Team developed its own proprietary operating system `HormonyOS`.
+- [2019.8.9]  Huawei officially released `HormonyOS`, and `HormonyOS` Operating System will be open source.
 
-  
+# Ⅲ Features
+![](assets/img/harmony/features.png)
+
+HormonyOS is designed to meet the high standard connection requirements of full-scene intelligent experience. For this reason, Huawei has proposed four system solutions with major features.
+
+* #### 1. Distributed architecture is first used in terminal OS to realize seamless collaborative experience across terminals
+
+HormonyOS's "Distributed OS Architecture" and "Distributed Soft Bus Technology" shield the application developers from the difficulties of implementing the underlying technologies of the corresponding distributed applications through the four capabilities of public communication platform, distributed data management, distributed capability scheduling and virtual peripherals, enabling developers to focus on their own business logic, like open. Developing cross-terminal distributed applications like the same terminal also enables the final consumers to enjoy the seamless experience brought by the powerful cross-terminal business collaboration capability for each use scenario.
+
+![](assets/img/harmony/harmonyos1.jpg)
+
+* #### 2. Determine the time delay engine and high performance IPC technology to achieve natural fluency in the system
+
+HormonyOS solves the problem of inadequate performance of existing systems by using two technologies: deterministic delay engine and high performance IPC. Determining the delay engine can assign priority and time limit of task execution in the system before task execution. The priority task resources will give priority to scheduling, and the application response delay will be reduced by 25.7%. The compact structure of Hongmeng microkernel greatly improves the performance of IPC (interprocess communication) and the efficiency of process communication is five times higher than that of existing systems.
+
+![](assets/img/harmony/harmonyos2.jpg)
+
+* #### 3. Rebuilding Trusted Security of Terminal Equipment Based on Microkernel Architecture
+
+HormonyOS adopts a new micro-core design, which has stronger security features and low latency. The basic idea of microkernel design is to simplify the functions of the kernel, to realize as many system services as possible in user states outside the kernel, and to add security protection to each other. Microkernels only provide the most basic services, such as multi-process scheduling and multi-process communication.
+
+![](assets/img/harmony/harmonyos3.jpg)
+
+HormonyOS applies microkernel technology to Trusted Execution Environment (TEE), and reshapes trusted security through formal methods. Formal method is an effective means to verify the correctness of the system and the absence of loopholes from the source by using mathematical methods. Traditional verification methods such as function verification and simulation attack can only be validated in limited scenarios, while formal methods can validate all software running paths through data model. For the first time, Hongmeng OS has applied formal methods to terminal TEE, which significantly improves the security level. At the same time, because the code amount of Hongmeng OS micro-kernel is only one thousandth of that of Linux macro-kernel, its attack probability is greatly reduced.
+
+* #### 4. Through unified IDE to support a single development, multi-terminal deployment, achieve cross-terminal ecological sharing
+
+![](assets/img/harmony/harmonyos4.jpg)
+
+HormonyOS relies on multi-terminal development IDE, multi-language unified compilation, distributed architecture Kit to provide screen layout control and interactive automatic adaptation, support control dragging, preview-oriented visual programming, so that developers can efficiently build multi-terminal automatic running App based on the same project, to achieve a real one-time development, multi-terminal. Deployment to achieve shared ecology across devices. Huawei Ark Compiler is the first static compiler to replace the Android virtual machine model, which allows developers to compile high-level languages into machine code at one time in the development environment. In addition, the Ark Compiler will support multi-language unified compilation in the future, which can greatly improve the development efficiency.
 
 
 # Resources
 
 
-## Official Resources
+## 1. Official Resources
 
 - [Official Site](https://developer.huawei.com)
 - [Release Notices]
@@ -51,15 +70,15 @@ HarmonyOS is a realtime, modular, microkernel operating system.
 - [Tutorials]
 - [Documentation]
 
-
-## Download
+## 2. Download
 - [Mirrors]
 
-## Architecture References
+## 3. Architecture References
+- [LiteOS](Huawei_LiteOS/README.md)
 - [ABI] Application Binary Interface
 - [EABI] Embedded Application Binary Interface
 
-## Hardware drivers
+## 4. Hardware drivers
 - [Device compatibility]
 - [Standards & Protocols] 
 - [Hareware Quality Specification]
@@ -75,17 +94,31 @@ HarmonyOS is a realtime, modular, microkernel operating system.
 - [Printer]
 
 
-## Developer Tools
+## 5. Developer Tools
 #### Compiler
-- [Ark] HongMeng is an Android-app compatible operating system, Ark compiler can improve Android system operation fluency by 24%, response speed by 44%, and the smoothness of the third-party application up to 60%.
+- [Ark] `Harmony`  is an Android-app compatible operating system, Ark compiler can improve Android system operation fluency by 24%, response speed by 44%, and the smoothness of the third-party application up to 60%.
+
 #### SDK
+[about SDK]
+
 #### IDE
 - [LiteOS IDE][Huawei LiteOS Studio](https://static.huaweicloud.com/upload/files/sdk/LiteOS_IDE.zip)
 
-### Community
+## 6. Community
 - [Questions]
 
-### Books
+## 7. Books
+[about books]
+
+## 8. Products
+
+- [Honor Smart Screen -- The first device to use the HoemonyOS](assets/img/products/honor_smart_screen.md)
+
+## 9. Videos
+
+* [Instructional Videos]
+* [Huawei HDC.2019 Harmony OS & EMUI10 Live Record](https://youtu.be/yUVGc7zpuKU)
+* [Honor Smart Screen TV Official Trailer](https://youtu.be/GczF2CKIGPk)
 
 
 
