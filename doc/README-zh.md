@@ -114,7 +114,7 @@
 
 ## 8. 相关产品
 
-- [华为荣耀智慧屏](../assets/img/products/honor_smart_screen.md)
+- [华为荣耀智慧屏](../products/honor_smart_screen.md)
 
 ## 9. 视频
 
