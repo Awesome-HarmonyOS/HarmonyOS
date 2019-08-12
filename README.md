@@ -116,7 +116,7 @@ HormonyOS relies on multi-terminal development IDE, multi-language unified compi
 
 ## 8. Products
 
-- [Honor Smart Screen -- The first device to use the HoemonyOS](products/honor_smart_screen.md)
+- [Honor Smart Screen -- The first device to use the HarmonyOS](products/honor_smart_screen.md)
 
 ## 9. Videos
 
