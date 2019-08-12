@@ -17,28 +17,28 @@
 
 
 # Ⅰ . What is HarmonyOS?
-`HormonyOS` is the first full-scene distributed OS based on micro-kernel. It is an operating system independently developed by Huawei. On August 9, 2019, `HormonyOS` System was officially released at the Huawei Developers Conference (<HDC.2019>). Huawei will take the lead in deploying intelligent terminals such as smart screens, vehicle terminals and wearable terminals. In the future, more and more intelligent devices will use open source `HormonyOS` .
+`HarmonyOS` is the first full-scene distributed OS based on micro-kernel. It is an operating system independently developed by Huawei. On August 9, 2019, `HarmonyOS` System was officially released at the Huawei Developers Conference (<HDC.2019>). Huawei will take the lead in deploying intelligent terminals such as smart screens, vehicle terminals and wearable terminals. In the future, more and more intelligent devices will use open source `HormonyOS` .
 
-`HormonyOS` achieves modular coupling, which corresponds to flexible deployment of different devices. `HormonyOS` has three layers of architecture. The first layer is the core, the second layer is the basic services, and the third layer is the program framework. It can be used in large screen, PC, automobile and other different equipment. It can also be used on mobile phones at any time, but for the time being, Huawei still prefers Android.
+`HarmonyOS` achieves modular coupling, which corresponds to flexible deployment of different devices. `HormonyOS` has three layers of architecture. The first layer is the core, the second layer is the basic services, and the third layer is the program framework. It can be used in large screen, PC, automobile and other different equipment. It can also be used on mobile phones at any time, but for the time being, Huawei still prefers Android.
 
-The underlying layer of HormonyOS is composed of  `HormonyOS micro kernel`, `Linux kernel` and [`Lite OS`](https://github.com/Awesome-HarmonyOS/HarmonyOS/tree/master/Huawei_LiteOS) and it will become a complete hongmeng micro kernel architecture in the future.
+The underlying layer of HarmonyOS is composed of  `HarmonyOS micro kernel`, `Linux kernel` and [`Lite OS`](https://github.com/Awesome-HarmonyOS/HarmonyOS/tree/master/Huawei_LiteOS) and it will become a complete hongmeng micro kernel architecture in the future.
 
 # Ⅱ . Development process
 
 - [2012] HarmonyOS started out in Shanghai’s Jiao Tong University in 2012. 
-- [2018.8.24] Huawei applied for the `Huawei HormonyOS` trademark. The registration announcement date of `HormonyOS` trademark is May 14, 2019. The exclusive rights of `HormonyOS` trademark are from May 14, 2019 to May 13, 2029.
+- [2018.8.24] Huawei applied for the `Huawei HarmonyOS` trademark. The registration announcement date of `HarmonyOS` trademark is May 14, 2019. The exclusive rights of `HarmonyOS` trademark are from May 14, 2019 to May 13, 2029.
 - [2019] Huawei has allegedly shipped 1 million smartphones with its self-developed "HarmonyOS" operating system onboard for testing.
-- [2019.5.17] Huawei Operating System Team developed its own proprietary operating system `HormonyOS`.
-- [2019.8.9]  Huawei officially released `HormonyOS`, and `HormonyOS` Operating System will be open source.
+- [2019.5.17] Huawei Operating System Team developed its own proprietary operating system `HarmonyOS`.
+- [2019.8.9]  Huawei officially released `HarmonyOS`, and `HarmonyOS` Operating System will be open source.
 
 # Ⅲ . Features
 ![](assets/img/harmony/features.png)
 
-HormonyOS is designed to meet the high standard connection requirements of full-scene intelligent experience. For this reason, Huawei has proposed four system solutions with major features.
+HarmonyOS is designed to meet the high standard connection requirements of full-scene intelligent experience. For this reason, Huawei has proposed four system solutions with major features.
 
 * #### 1. Distributed architecture is first used in terminal OS to realize seamless collaborative experience across terminals
 
-HormonyOS's "Distributed OS Architecture" and "Distributed Soft Bus Technology" shield the application developers from the difficulties of implementing the underlying technologies of the corresponding distributed applications through the four capabilities of public communication platform, distributed data management, distributed capability scheduling and virtual peripherals, enabling developers to focus on their own business logic, like open. Developing cross-terminal distributed applications like the same terminal also enables the final consumers to enjoy the seamless experience brought by the powerful cross-terminal business collaboration capability for each use scenario.
+HarmonyOS's "Distributed OS Architecture" and "Distributed Soft Bus Technology" shield the application developers from the difficulties of implementing the underlying technologies of the corresponding distributed applications through the four capabilities of public communication platform, distributed data management, distributed capability scheduling and virtual peripherals, enabling developers to focus on their own business logic, like open. Developing cross-terminal distributed applications like the same terminal also enables the final consumers to enjoy the seamless experience brought by the powerful cross-terminal business collaboration capability for each use scenario.
 
 ![](assets/img/harmony/harmonyos1.jpg)
 
