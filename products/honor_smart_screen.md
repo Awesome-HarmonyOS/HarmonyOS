@@ -15,30 +15,30 @@
 
 具体介绍如下图所示：
 
-![](../img/products/honor_smart_screen1.jpg)
+![](../assets/img/products/honor_smart_screen1.jpg)
 
-![](../img/products/honor_smart_screen2.jpg)
+![](../assets/img/products/honor_smart_screen2.jpg)
 
-![](../img/products/honor_smart_screen3.jpg)
+![](../assets/img/products/honor_smart_screen3.jpg)
 
-![](../img/products/honor_smart_screen4.jpg)
+![](../assets/img/products/honor_smart_screen4.jpg)
 
-![](../img/products/honor_smart_screen5.jpg)
+![](../assets/img/products/honor_smart_screen5.jpg)
 
-![](../img/products/honor_smart_screen6.jpg)
+![](../assets/img/products/honor_smart_screen6.jpg)
 
-![](../img/products/honor_smart_screen7.jpg)
+![](../assets/img/products/honor_smart_screen7.jpg)
 
-![](../img/products/honor_smart_screen8.jpg)
+![](../assets/img/products/honor_smart_screen8.jpg)
 
-![](../img/products/honor_smart_screen9.jpg)
+![](../assets/img/products/honor_smart_screen9.jpg)
 
-![](../img/products/honor_smart_screen10.jpg)
+![](../assets/img/products/honor_smart_screen10.jpg)
 
-![](../img/products/honor_smart_screen11.jpg)
+![](../assets/img/products/honor_smart_screen11.jpg)
 
-![](../img/products/honor_smart_screen12.jpg)
+![](../assets/img/products/honor_smart_screen12.jpg)
 
-![](../img/products/honor_smart_screen13.jpg)
+![](../assets/img/products/honor_smart_screen13.jpg)
 
-![](../img/products/honor_smart_screen14.jpg)
+![](../assets/img/products/honor_smart_screen14.jpg)
