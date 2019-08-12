@@ -21,7 +21,7 @@
 
 `HormonyOS` achieves modular coupling, which corresponds to flexible deployment of different devices. `HormonyOS` has three layers of architecture. The first layer is the core, the second layer is the basic services, and the third layer is the program framework. It can be used in large screen, PC, automobile and other different equipment. It can also be used on mobile phones at any time, but for the time being, Huawei still prefers Android.
 
-The underlying layer of HormonyOS is composed of  `HormonyOS micro kernel`, `Linux kernel` and `Lite OS` and it will become a complete hongmeng micro kernel architecture in the future.
+The underlying layer of HormonyOS is composed of  `HormonyOS micro kernel`, `Linux kernel` and [`Lite OS`](https://github.com/Awesome-HarmonyOS/HarmonyOS/tree/master/Huawei_LiteOS) and it will become a complete hongmeng micro kernel architecture in the future.
 
 # Ⅱ . Development process
 
