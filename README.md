@@ -125,7 +125,7 @@ HormonyOS relies on multi-terminal development IDE, multi-language unified compi
 * [Honor Smart Screen TV Official Trailer](https://youtu.be/GczF2CKIGPk)
 
 
-
+Tips: This project is not an official.This project collect some documents about HarmonyOS in the Internet.This is not a commercial project.This project just introduce HarmonyOS and all documents and codes come from Internet.If you use this project for business or something about make money, or in the event of any disputes arising from the usage of, or in connection with this project,you will accept all responsibility for the negative results or effects of one's choice or action.
 
 
 
