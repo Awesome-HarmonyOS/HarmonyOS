@@ -1131,13 +1131,11 @@ int los_fs_unmount (const char *path)
     {
         for (prev = mount_points; prev != NULL; prev = prev->m_next)
         {
-            if (prev->m_next != mp)
+            if (prev->m_next == mp)
             {
-                continue;
-            }
-
-            prev->m_next = mp->m_next;
-            break;
+				prev->m_next = mp->m_next;
+				break;
+			}
         }
     }
 
