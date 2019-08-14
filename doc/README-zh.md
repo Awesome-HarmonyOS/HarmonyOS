@@ -1,5 +1,5 @@
 
-[English Docs](../README.md)  |  [中文文档](doc/README-zh.md)
+[English Docs](../README.md)  |  [中文文档](README-zh.md)  |  [Türkçe Dökümanlar](README-tr.md)
 
 
 # HarmonyOS
