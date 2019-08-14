@@ -16,11 +16,13 @@
 
 
 # Ⅰ . HarmonyOS Nedir?
-`HarmonyOS` ilk tam dağıtık işletim sistemidir. İşletim sistemi, Huawei tarafından bağımsız olarak geliştirilmiştir. On August 9, 2019, `HarmonyOS` System was officially released at the Huawei Developers Conference (<HDC.2019>). Huawei will take the lead in deploying intelligent terminals such as smart screens, vehicle terminals and wearable terminals. In the future, more and more intelligent devices will use open source `HarmonyOS` .
+`HarmonyOS` ilk tam dağıtık işletim sistemidir. İşletim sistemi, Huawei tarafından bağımsız olarak geliştirilmiştir. `HarmonyOS` resmi olarak 9 Ağustos 2019 tarihinde Huawei Developers Conference (<HDC.2019>) adlı konferans ile yayınlandı. Huawei, akıllı ekranlar, araç ve giyilebilir terminallerin yerleştirilmesinde öncülük edecektir. Gelecekte, daha akıllı cihazlar açık kaynak kodlu `HarmonyOS` kullanacaktır.
 
-`HarmonyOS` achieves modular coupling, which corresponds to flexible deployment of different devices. `HarmonyOS` has three layers of architecture. The first layer is the core, the second layer is the basic services, and the third layer is the program framework. It can be used in large screen, PC, automobile and other different equipment. It can also be used on mobile phones at any time, but for the time being, Huawei still prefers Android.
 
-The underlying layer of HarmonyOS is composed of  `HarmonyOS micro kernel`, `Linux kernel` and [`Lite OS`](https://github.com/Awesome-HarmonyOS/HarmonyOS/tree/master/Huawei_LiteOS) and it will become a complete hongmeng micro kernel architecture in the future.
+`HarmonyOS` esnek yapısı nedeniyle farklı cihazlarda modüler bağlar kurmayı sağlar. `HarmonyOS` 3 katmanlı bir mimarisi mevcuttur. İlk katman çekirdek, ikinci katman temel servisler ve son üçüncü katman ise programlama yapılan çatıdır. Huawei şu sıralar tercihini Android tarafında kullansa bile bu sistem her zaman mobil cihazlarda kullanılabilecektir. 
+
+`HarmonyOS` altındaki katmanlar şu şekildedir. `HarmonyOS micro kernel`, `Linux kernel` ve [`Lite OS`](https://github.com/Awesome-HarmonyOS/HarmonyOS/tree/master/Huawei_LiteOS) 
+Ve gelecekte tamamen `hongmeng` mimarisi olacaktır.
 
 # Ⅱ . Geliştirme Süreci
 // to be continue
