@@ -32,4 +32,22 @@ Ve gelecekte tamamen `hongmeng` mimarisi olacaktır.
 - [2019.8.9]  Huawei resmi olarak `HarmonyOS` ismiyle duyurdu ve `HarmonyOS` açık kaynak olacaktır.
 
 # Ⅲ . Features
-![](assets/img/harmony/features.png)
+![](../assets/img/harmony/features.png)
+
+HarmonyOS, tam sahne akıllı deneyiminin yüksek standart bağlantı gereksinimlerini karşılamak için tasarlanmıştır. Bu nedenle, Huawei 4 büyük özellikle sistem çözümleri ileri sürüyor.
+
+* #### 1. Dağıtılmış mimari ilk işletim sistemi terminalinde terminaller arasında sorunsuz iş akışı sağlamak için kullanılır. 
+
+HarmonyOS "Distributed OS Architecture" ve "Distributed Soft Bus Technology" teknolojileri uygulama geliştiricileri temel teknolojilerin uygulamasını korur. 4 yetenek yani açık iletişim platformu, dağıtık veri yönetimi, dağıtık yetenek zamanlaması ve sanal çevre birimleri geliştiricilere kendi uygulamalarına ait iş mantıklarını geliştirmelerine odaklanmalarını sağlar.
+Terminallerde olduğu gibi burada da yeteneklerin kullanılarak kesintisiz deneyimin keyfini çıkarmalarını sağlanır.
+
+![](../assets/img/harmony/harmonyos1.jpg)
+
+* #### 2. Sistemdeki doğal akıcılığı sağlamak için zaman gecikmeli motoru ve yüksek performanslı IPC teknolojisini değerlendirelim.
+
+HarmonyOS, iki teknolojiyi kullanarak mevcut sistemlerin yetersiz performans sorununu çözdü.
+Bunlar deterministik gecikme motoru ve yüksek performanslı IPC. Gecikme motorunun belirlenmesi, görev yürütmeden önce sistemde görev yürütmenin öncelik ve zaman sınırını atayabilir.Görev kaynaklarını zamanlamaya göre öncelik verecektir ve uygulamanın cevap dönüş gecikmesi 25.7% oranında azalacaktır. Sıkıştırılmış `Hongmeng` mimarisi süreçler arası iletişimi yüksek oranda arttırırken işlem hızı mevcut sistemlerinkinden beş kat daha yüksektir
+
+
+![](../assets/img/harmony/harmonyos2.jpg)
+
