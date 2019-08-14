@@ -25,4 +25,11 @@
 Ve gelecekte tamamen `hongmeng` mimarisi olacaktır.
 
 # Ⅱ . Geliştirme Süreci
-// to be continue
+- [2012] HarmonyOS 2012 yılında Şangaydaki Jiao Tong üniversitesinde geliştirilmeye başlandı.
+- [2018.8.24] Huawei tarafından `Huawei HarmonyOS` isimli marka olarak başvuru yapıldı. 14 Mayıs 2019 da `HarmonyOS` isimli marka tescilini duyurdu. `HarmonyOS` isimli markanın özel hakları 14 Mayıs 2019 dan 13 mayıs 2029 yılına kadardır.
+- [2019] Huawei iddaa ettiğine göre  1 milyon akıllı telefonda `HarmonyOS` işletim sistemi test edilmeye hazır.
+- [2019.5.17] Huawei işletim sistemi takımı kendi tescilli işletim sistemi olan `HarmonyOS` geliştirdi.
+- [2019.8.9]  Huawei resmi olarak `HarmonyOS` ismiyle duyurdu ve `HarmonyOS` açık kaynak olacaktır.
+
+# Ⅲ . Features
+![](assets/img/harmony/features.png)
