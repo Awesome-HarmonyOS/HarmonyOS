@@ -46,8 +46,19 @@ Terminallerde olduğu gibi burada da yeteneklerin kullanılarak kesintisiz deney
 * #### 2. Sistemdeki doğal akıcılığı sağlamak için zaman gecikmeli motoru ve yüksek performanslı IPC teknolojisini değerlendirelim.
 
 HarmonyOS, iki teknolojiyi kullanarak mevcut sistemlerin yetersiz performans sorununu çözdü.
-Bunlar deterministik gecikme motoru ve yüksek performanslı IPC. Gecikme motorunun belirlenmesi, görev yürütmeden önce sistemde görev yürütmenin öncelik ve zaman sınırını atayabilir.Görev kaynaklarını zamanlamaya göre öncelik verecektir ve uygulamanın cevap dönüş gecikmesi 25.7% oranında azalacaktır. Sıkıştırılmış `Hongmeng` mimarisi süreçler arası iletişimi yüksek oranda arttırırken işlem hızı mevcut sistemlerinkinden beş kat daha yüksektir
+Bunlar deterministik gecikme motoru ve yüksek performanslı IPC. Gecikme motorunun belirlenmesi, görev yürütmeden önce sistemde görev yürütmenin öncelik ve zaman sınırını atayabilir.Görev kaynaklarını zamanlamaya göre öncelik verecektir ve uygulamanın cevap dönüş gecikmesi 25.7% oranında azalacaktır. Sıkıştırılmış `Hongmeng` mimarisi süreçler arası iletişimi yüksek oranda arttırırken işlem hızı mevcut sistemlerden beş kat daha yüksektir
 
 
 ![](../assets/img/harmony/harmonyos2.jpg)
 
+* #### 3. Yeniden güvenle inşa edilebilir terminal ekipman bazlı Microkernel Mimari
+
+HarmonyOS mikro-çekirdek dizaynı benimser ve ayrıca düşük gecikme süreli güçlü güvenlik yapıları vardır. Mikro-çekirdek mimarisi basitçe çekirkek fonksiyonları mümkün olduğu kadar çok sistem hizmetini gerçekleştirmekte ve her biri için ek olarak güvenlik katmanı mevcuttur. Mikro-çekirkek sadece en çok basit bilinen servislerini örneğin çoklu işlemci zamanlanması ve çalışması sağlar.
+
+![](../assets/img/harmony/harmonyos3.jpg)
+
+HarmonyOS applies microkernel technology to Trusted Execution Environment (TEE), and reshapes trusted security through formal methods. Formal method is an effective means to verify the correctness of the system and the absence of loopholes from the source by using mathematical methods. Traditional verification methods such as function verification and simulation attack can only be validated in limited scenarios, while formal methods can validate all software running paths through data model. For the first time, Hongmeng OS has applied formal methods to terminal TEE, which significantly improves the security level. At the same time, because the code amount of Hongmeng OS micro-kernel is only one thousandth of that of Linux macro-kernel, its attack probability is greatly reduced.
+
+* #### 4. Through unified IDE to support a single development, multi-terminal deployment, achieve cross-terminal ecological sharing
+
+![](assets/img/harmony/harmonyos4.jpg)
