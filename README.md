@@ -25,7 +25,7 @@ The underlying layer of HarmonyOS is composed of  `HarmonyOS micro kernel`, `Lin
 
 # Ⅱ . Development process
 
-- [2012] HarmonyOS started out in Shanghai’s Jiao Tong University in 2012. 
+- [2012] HarmonyOS started out in Shanghai Jiao Tong University in 2012. 
 - [2018.8.24] Huawei applied for the `Huawei HarmonyOS` trademark. The registration announcement date of `HarmonyOS` trademark is May 14, 2019. The exclusive rights of `HarmonyOS` trademark are from May 14, 2019 to May 13, 2029.
 - [2019] Huawei has allegedly shipped 1 million smartphones with its self-developed "HarmonyOS" operating system onboard for testing.
 - [2019.5.17] Huawei Operating System Team developed its own proprietary operating system `HarmonyOS`.
