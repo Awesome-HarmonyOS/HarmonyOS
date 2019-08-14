@@ -1,6 +1,0 @@
-gcc -Wall -c transport.c -Os -s
-gcc qos0pub.c transport.o -I ../src ../src/MQTTConnectClient.c ../src/MQTTSerializePublish.c ../src/MQTTPacket.c -o qos0pub -Os -s
-
-gcc pub0sub1.c transport.o -I ../src ../src/MQTTConnectClient.c ../src/MQTTSerializePublish.c ../src/MQTTPacket.c ../src/MQTTSubscribeClient.c -o pub0sub1 ../src/MQTTDeserializePublish.c -Os -s ../src/MQTTConnectServer.c ../src/MQTTSubscribeServer.c ../src/MQTTUnsubscribeServer.c ../src/MQTTUnsubscribeClient.c -ggdb
-gcc pub0sub1_nb.c transport.o -I ../src ../src/MQTTConnectClient.c ../src/MQTTSerializePublish.c ../src/MQTTPacket.c ../src/MQTTSubscribeClient.c -o pub0sub1_nb ../src/MQTTDeserializePublish.c -Os -s ../src/MQTTConnectServer.c ../src/MQTTSubscribeServer.c ../src/MQTTUnsubscribeServer.c ../src/MQTTUnsubscribeClient.c -ggdb
-
