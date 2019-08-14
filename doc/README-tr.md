@@ -57,8 +57,8 @@ HarmonyOS mikro-çekirdek dizaynı benimser ve ayrıca düşük gecikme süreli 
 
 ![](../assets/img/harmony/harmonyos3.jpg)
 
-HarmonyOS applies microkernel technology to Trusted Execution Environment (TEE), and reshapes trusted security through formal methods. Formal method is an effective means to verify the correctness of the system and the absence of loopholes from the source by using mathematical methods. Traditional verification methods such as function verification and simulation attack can only be validated in limited scenarios, while formal methods can validate all software running paths through data model. For the first time, Hongmeng OS has applied formal methods to terminal TEE, which significantly improves the security level. At the same time, because the code amount of Hongmeng OS micro-kernel is only one thousandth of that of Linux macro-kernel, its attack probability is greatly reduced.
+HarmonyOS mikro-çekirdek mimarisinde Trusted Execution Environment (TEE) teknolojisini uygulayarak güvenliği resmi olarak şekillendirmiştir.Resmi yöntem, sistemin doğruluğunu doğrulamak için etkili bir yol ve matematiksel işlemlerdir.İşlev doğrulama ve simülasyon saldırısı gibi geleneksel doğrulama yöntemleri yalnızca sınırlı senaryolarda doğrulayabilirken resmi yöntemler, çalışan tüm yazılım yollarını veri modeli aracılığıyla doğrulayabilir. İlk kez Hongmeng OS için TEE terminaline resmi yöntemler uyguladı ve yöntemler güvenlik seviyesini önemli ölçüde arttırdı. Aynı zamanda, Hongmeng OS mikro çekirdeğinin kod miktarı Linux makro çekirdeğinin yalnızca binde biri olduğundan, saldırı olasılığı büyük ölçüde azaltıldı.
 
-* #### 4. Through unified IDE to support a single development, multi-terminal deployment, achieve cross-terminal ecological sharing
+* #### 4. Birleşik tek bir geliştirme ortamı(IDE) desteği, çoklu deployment, ve terminaller arası dengenin sağlanabilmesi
 
-![](assets/img/harmony/harmonyos4.jpg)
+![](../assets/img/harmony/harmonyos4.jpg)
