@@ -59,6 +59,78 @@ HarmonyOS mikro-çekirdek dizaynı benimser ve ayrıca düşük gecikme süreli 
 
 HarmonyOS mikro-çekirdek mimarisinde Trusted Execution Environment (TEE) teknolojisini uygulayarak güvenliği resmi olarak şekillendirmiştir.Resmi yöntem, sistemin doğruluğunu doğrulamak için etkili bir yol ve matematiksel işlemlerdir.İşlev doğrulama ve simülasyon saldırısı gibi geleneksel doğrulama yöntemleri yalnızca sınırlı senaryolarda doğrulayabilirken resmi yöntemler, çalışan tüm yazılım yollarını veri modeli aracılığıyla doğrulayabilir. İlk kez Hongmeng OS için TEE terminaline resmi yöntemler uyguladı ve yöntemler güvenlik seviyesini önemli ölçüde arttırdı. Aynı zamanda, Hongmeng OS mikro çekirdeğinin kod miktarı Linux makro çekirdeğinin yalnızca binde biri olduğundan, saldırı olasılığı büyük ölçüde azaltıldı.
 
-* #### 4. Birleşik tek bir geliştirme ortamı(IDE) desteği, çoklu deployment, ve terminaller arası dengenin sağlanabilmesi
+* #### 4. Birleşik tek bir geliştirme ortamı(IDE) desteği, çoklu güncelleme ve cihazlar arası dengenin sağlanabilmesi
 
 ![](../assets/img/harmony/harmonyos4.jpg)
+
+HarmonyOS çoklu terminal geliştirme ortamına, bir çok dili birleştirip derleme, dağıtık mimari ekran genişlik kontrolü ve otomatik cihaz ekranına adapte olabilme, taşıma kontrolleri desteği, önizleme odaklı görsel programlama altyapıları geliştiricilerin verimli bir şekilde aynı projeye dayalı çalışan çoklu cihaz ortamlarında otomatik çalışabilmesini sağlayan altyapılara sahiptir.
+ 
+Yeni güncellemeler cihazlar arasında uygulanır. Huawei Ark Derleyici, Android sanal makine modelinin yerini alan ilk statik derleyicidir ve bu durum  makina kodunun yüksek seviyeli dillerin derlenirken geliştiricilerin geliştirme ortamında bir defada  derlemelerine olanak sağlar. Ek olarak Ark Derleyici, gelecekte geliştirme verimliliğini büyük ölçüde artırabilen çok dilli birleşik derlemeyi destekleyecektir.
+
+
+# IV . Kaynaklar
+
+
+## 1. Resmi Kaynaklar
+
+- [Resmi Site](https://developer.huawei.com)
+- [Sürüm Notları]
+- [Güvenlik Notları]
+- [Tutorials]
+- [Dökümantasyon]
+
+## 2. İndir
+- [Sunucu Adresleri]
+
+## 3. Mimari Referanslar
+- [LiteOS](Huawei_LiteOS/README.md)
+- [ABI] Application Binary Interface
+- [EABI] Embedded Application Binary Interface
+
+## 4. Donanım Sürücüleri
+- [Cihaz Uygunlukları]
+- [Standartlar & Protokoller] 
+- [Donanım Kalite Özellikleri]
+- [Sürücü Geliştirme Kitleri]
+- [Sürücü Örnekleri]
+- [Hata ayıklama Araçları]
+- [Güvenlik]
+- [5 inci Jenerasyon Sürücü ve yazılım]
+- [Boot ve UEFI]
+- [ACPI/SoC]
+- [Wi-Fi]
+- [USB]
+- [Yazıcı]
+
+
+## 5. Geliştirme Araçları
+#### Derleme
+- [Ark] `Harmony` Android uygulama uyumlu işletim sistemi, Ark derleyicisi Android sistem işlem akıcılığını 24% , yanıt dönüş hızını 44%, ve üçüncü taraf uygulamasının düzgünlüğü 60% oranında arttırabilir.
+
+#### SDK
+[SDK hakkında]
+
+#### IDE
+- [LiteOS IDE][Huawei LiteOS Studio](https://static.huaweicloud.com/upload/files/sdk/LiteOS_IDE.zip)
+
+## 6. Topluluk
+- [Sorular]
+
+## 7. Kitaplar
+[Kitaplar Hakkında]
+
+## 8. Ürünler
+
+- [Honor Smart Screen -- HarmonyOS kullanan ilk cihaz](products/honor_smart_screen.md)
+
+## 9. Videolar
+
+* [Eğitici Videolar]
+* [Huawei HDC.2019 Harmony OS & EMUI10 Live Record](https://youtu.be/yUVGc7zpuKU)
+* [Honor Smart Screen TV Official Trailer](https://youtu.be/GczF2CKIGPk)
+
+
+İpuçları: Bu proje resmi değildir. Bu proje İnternette HarmonyOS ile ilgili bazı belgeler topluyor. Bu ticari bir proje değildir. Bu proje sadece HarmonyOS ye başlamak ve tüm dökümanlarına ulaşmak içindir. Bu projeyi iş için ya da para kazanmakla ilgili bir şey için kullanıyorsanız ya da bu projenin kullanılmasından veya bu projeyle bağlantılı olarak ortaya çıkan herhangi bir anlaşmazlık durumunda, birinin seçiminin veya eyleminin olumsuz sonuçlarından veya etkilerinden tüm sorumluluğu siz kendiriniz üstleneceksiniz.
+
+
+
