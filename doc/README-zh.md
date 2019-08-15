@@ -76,7 +76,7 @@
 - [镜像]
 
 ## 3. 架构参考
-- [LiteOS](Huawei_LiteOS/README.md)
+- [LiteOS](../Huawei_LiteOS/README.md)
 - [ABI] Application Binary Interface
 - [EABI] Embedded Application Binary Interface
 
