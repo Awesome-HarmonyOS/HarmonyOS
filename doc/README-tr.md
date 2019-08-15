@@ -83,7 +83,7 @@ Yeni güncellemeler cihazlar arasında uygulanır. Huawei Ark Derleyici, Android
 - [Sunucu Adresleri]
 
 ## 3. Mimari Referanslar
-- [LiteOS](Huawei_LiteOS/README.md)
+- [LiteOS](../Huawei_LiteOS/README.md)
 - [ABI] Application Binary Interface
 - [EABI] Embedded Application Binary Interface
 
