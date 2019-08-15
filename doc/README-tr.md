@@ -130,7 +130,7 @@ Yeni güncellemeler cihazlar arasında uygulanır. Huawei Ark Derleyici, Android
 * [Honor Smart Screen TV Official Trailer](https://youtu.be/GczF2CKIGPk)
 
 
-İpuçları: Bu proje resmi değildir. Bu proje İnternette HarmonyOS ile ilgili bazı belgeler topluyor. Bu ticari bir proje değildir. Bu proje sadece HarmonyOS ye başlamak ve tüm dökümanlarına ulaşmak içindir. Bu projeyi iş için ya da para kazanmakla ilgili bir şey için kullanıyorsanız ya da bu projenin kullanılmasından veya bu projeyle bağlantılı olarak ortaya çıkan herhangi bir anlaşmazlık durumunda, birinin seçiminin veya eyleminin olumsuz sonuçlarından veya etkilerinden tüm sorumluluğu siz kendiriniz üstleneceksiniz.
+İpuçları: Bu proje resmi değildir. Bu proje İnternette HarmonyOS ile ilgili bazı belgeler topluyor. Bu ticari bir proje değildir. Bu proje sadece HarmonyOS ye başlamak ve tüm dökümanlarına ulaşmak içindir. Bu projeyi iş için ya da para kazanmakla ilgili bir şey için kullanıyorsanız ya da bu projenin kullanılmasından veya bu projeyle bağlantılı olarak ortaya çıkan herhangi bir anlaşmazlık durumunda, birinin seçiminin veya eyleminin olumsuz sonuçlarından veya etkilerinden tüm sorumluluğu siz kendiniz üstleneceksiniz.
 
 
 
