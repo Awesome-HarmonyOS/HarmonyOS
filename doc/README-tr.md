@@ -12,7 +12,7 @@
 
 
 
-> HarmonyOS ile ilgili bilgiler şeyler listesi.
+> HarmonyOS ile ilgili şeyler listesi.
 
 
 # Ⅰ . HarmonyOS Nedir?
@@ -31,7 +31,7 @@ Ve gelecekte tamamen `hongmeng` mimarisi olacaktır.
 - [2019.5.17] Huawei işletim sistemi takımı kendi tescilli işletim sistemi olan `HarmonyOS` geliştirdi.
 - [2019.8.9]  Huawei resmi olarak `HarmonyOS` ismiyle duyurdu ve `HarmonyOS` açık kaynak olacaktır.
 
-# Ⅲ . Features
+# Ⅲ . Özellikler
 ![](../assets/img/harmony/features.png)
 
 HarmonyOS, tam sahne akıllı deneyiminin yüksek standart bağlantı gereksinimlerini karşılamak için tasarlanmıştır. Bu nedenle, Huawei 4 büyük özellikle sistem çözümleri ileri sürüyor.
@@ -130,7 +130,7 @@ Yeni güncellemeler cihazlar arasında uygulanır. Huawei Ark Derleyici, Android
 * [Honor Smart Screen TV Official Trailer](https://youtu.be/GczF2CKIGPk)
 
 
-İpuçları: Bu proje resmi değildir. Bu proje İnternette HarmonyOS ile ilgili bazı belgeler topluyor. Bu ticari bir proje değildir. Bu proje sadece HarmonyOS ye başlamak ve tüm dökümanlarına ulaşmak içindir. Bu projeyi iş için ya da para kazanmakla ilgili bir şey için kullanıyorsanız ya da bu projenin kullanılmasından veya bu projeyle bağlantılı olarak ortaya çıkan herhangi bir anlaşmazlık durumunda, birinin seçiminin veya eyleminin olumsuz sonuçlarından veya etkilerinden tüm sorumluluğu siz kendiniz üstleneceksiniz.
+İpuçları: Bu proje resmi değildir. Bu projenin amacı internette HarmonyOS ile ilgili bazı belgeler derlemek ve okuyuculara sunmaktır. Bu ticari bir proje değildir. Bu proje sadece HarmonyOS ye başlamak ve tüm dökümanlarına ulaşmak içindir. Bu projeyi iş için ya da para kazanmakla ilgili bir şey için kullanıyorsanız ya da bu projenin kullanılmasından veya bu projeyle bağlantılı olarak ortaya çıkan herhangi bir anlaşmazlık durumunda, birinin seçiminin veya eyleminin olumsuz sonuçlarından veya etkilerinden tüm sorumluluğu siz üstleneceksiniz.
 
 
 
