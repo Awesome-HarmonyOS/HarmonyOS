@@ -122,9 +122,4 @@
 * [[HDC 2019]华为开发者大会-暨鸿蒙OS及EMUI 10发布会完整视频](https://www.bilibili.com/video/av62922095/)
 * [荣耀智慧屏发布会完整视频](https://www.bilibili.com/video/av63069901)
 
-
-
-
-
-
-
+## 小贴士：这个项目不是官方的。 该项目从Internet收集有关 HarmonyOS 的文档。 这不是商业项目。 该项目刚刚介绍了 HarmonyOS，所有文档和代码都来自 Internet。 如果您将此项目用于商业目的，或者因使用本项目或与本项目有关而引起任何争议，您将对所选择或行动的负面结果或影响承担全部责任。
