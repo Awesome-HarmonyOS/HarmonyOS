@@ -21,7 +21,7 @@
 
 `HarmonyOS` achieves modular coupling, which corresponds to flexible deployment of different devices. `HarmonyOS` has three layers of architecture. The first layer is the core, the second layer is the basic services, and the third layer is the program framework. It can be used on a large screen, PC, automobile and other different equipment. It can also be used on mobile phones at any time, but for the time being, Huawei still prefers Android.
 
-The underlying layer of HarmonyOS is composed of  `HarmonyOS microkernel`, `Linux kernel` and [`Lite OS`](https://github.com/Awesome-HarmonyOS/HarmonyOS/tree/master/Huawei_LiteOS) and it will become a complete Hongmeng microkernel architecture in the future.
+The underlying layer of HarmonyOS is composed of  `HarmonyOS microkernel`, `Linux kernel` and [`Lite OS`](https://github.com/Awesome-HarmonyOS/HarmonyOS/tree/master/Huawei_LiteOS) and it will become a complete HarmonyOS microkernel architecture in the future.
 
 # Ⅱ . Development process
 
@@ -44,7 +44,7 @@ HarmonyOS's "Distributed OS Architecture" and "Distributed Soft Bus Technology" 
 
 * #### 2. Determine the time delay engine and high-performance IPC technology to achieve natural fluency in the system
 
-HarmonyOS solves the problem of inadequate performance of existing systems by using two technologies: deterministic delay engine and high-performance IPC. Determining the delay engine can assign priority and time limit of task execution in the system before task execution. The priority task resources will give priority to scheduling, and the application response delay will be reduced by 25.7%. The compact structure of Hongmeng microkernel greatly improves the performance of IPC (interprocess communication) and the efficiency of process communication is five times higher than that of existing systems.
+HarmonyOS solves the problem of inadequate performance of existing systems by using two technologies: deterministic delay engine and high-performance IPC. Determining the delay engine can assign priority and time limit of task execution in the system before task execution. The priority task resources will give priority to scheduling, and the application response delay will be reduced by 25.7%. The compact structure of HarmonyOS microkernel greatly improves the performance of IPC (interprocess communication) and the efficiency of process communication is five times higher than that of existing systems.
 
 ![](assets/img/harmony/harmonyos2.jpg)
 
@@ -54,7 +54,7 @@ HarmonyOS adopts a new micro-core design, which has stronger security features a
 
 ![](assets/img/harmony/harmonyos3.jpg)
 
-HarmonyOS applies microkernel technology to Trusted Execution Environment(TEE), and reshapes trusted security through formal methods. A Formal method is an effective means to verify the correctness of the system and the absence of loopholes from the source by using mathematical methods. Traditional verification methods such as function verification and simulation attack can only be validated in limited scenarios, while formal methods can validate all software running paths through the data model. For the first time, Hongmeng OS has applied formal methods to terminal TEE, which significantly improves the security level. At the same time, because the code amount of Hongmeng OS microkernel is only one-thousandth of that of Linux macro-kernel, its attack probability is greatly reduced.
+HarmonyOS applies microkernel technology to Trusted Execution Environment(TEE), and reshapes trusted security through formal methods. A Formal method is an effective means to verify the correctness of the system and the absence of loopholes from the source by using mathematical methods. Traditional verification methods such as function verification and simulation attack can only be validated in limited scenarios, while formal methods can validate all software running paths through the data model. For the first time, HarmonyOS has applied formal methods to terminal TEE, which significantly improves the security level. At the same time, because the code amount of HarmonyOS microkernel is only one-thousandth of that of Linux macro-kernel, its attack probability is greatly reduced.
 
 * #### 4. Through unified IDE to support a single development, multi-terminal deployment, achieve cross-terminal ecological sharing
 
