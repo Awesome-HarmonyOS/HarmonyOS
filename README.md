@@ -2,7 +2,10 @@
 [English Docs](README.md)  |  [中文文档](doc/README-zh.md)  |  [Türkçe Dökümanlar](doc/README-tr.md)
 
 
-# HarmonyOS
+# HarmonyOSv1
+
+[Click here to see "HarmonyOS v2"](./offical.md)
+
 ![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg) 
 
 <p align="center">
