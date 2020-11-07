@@ -41,7 +41,7 @@ static const char *g_log_names[] =
     "DEBUG",
     "INFO",
     "WARNING",
-    "ERR",
+    "ERROR",
     "FATAL",
 };
 
