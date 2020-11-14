@@ -1,1 +1,1 @@
-##Huawei LiteOS Kernel
+## Huawei LiteOS Kernel
