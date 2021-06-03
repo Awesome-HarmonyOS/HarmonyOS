@@ -222,7 +222,7 @@ LITE_OS_SEC_TEXT UINT32 LOS_EventWrite(PEVENT_CB_S pstEventCB, UINT32 uwEvents)
     return LOS_OK;
 }
 
-LITE_OS_SEC_TEXT_INIT UINT32 LOS_EventDestory(PEVENT_CB_S pstEventCB)
+LITE_OS_SEC_TEXT_INIT UINT32 LOS_EventDestroy(PEVENT_CB_S pstEventCB)
 {
     UINTPTR uvIntSave;
 
@@ -236,7 +236,7 @@ LITE_OS_SEC_TEXT_INIT UINT32 LOS_EventDestory(PEVENT_CB_S pstEventCB)
     if (!LOS_ListEmpty(&pstEventCB->stEventList))
     {
         (VOID)LOS_IntRestore(uvIntSave);
-        return LOS_ERRNO_EVENT_SHOULD_NOT_DESTORY;
+        return LOS_ERRNO_EVENT_SHOULD_NOT_DESTROY;
     }
 
     pstEventCB->stEventList.pstNext = (LOS_DL_LIST *)NULL;

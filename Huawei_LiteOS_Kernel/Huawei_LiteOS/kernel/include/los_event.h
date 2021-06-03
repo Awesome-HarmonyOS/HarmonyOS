@@ -275,18 +275,18 @@ extern UINT32 LOS_EventClear(PEVENT_CB_S pstEventCB, UINT32 uwEvents);
 
 /**
  *@ingroup los_event
- *@brief Destory a event.
+ *@brief Destroy an event.
  *
  *@par Description:
  *<ul>
- *<li>This API is used to Destory a event.</li>
+ *<li>This API is used to Destroy an event.</li>
  *</ul>
  *@attention
  *<ul>
  *<li>None</li>
  *</ul>
  *
- *@param pstEventCB     [IN/OUT] Pointer to the event control block to be Destoryed.
+ *@param pstEventCB     [IN/OUT] Pointer to the event control block to be Destroyed.
  *
  *@retval #LOS_ERRNO_EVENT_PTR_NULL 0x02001c06: Null pointer.
  *@retval #LOS_OK 0: The event is successfully cleared.
@@ -295,7 +295,7 @@ extern UINT32 LOS_EventClear(PEVENT_CB_S pstEventCB, UINT32 uwEvents);
  *@see LOS_EventPoll | LOS_EventRead，LOS_EventWrite
  *@since Huawei LiteOS V100R001C00
  */
-extern UINT32 LOS_EventDestory(PEVENT_CB_S pstEventCB);
+extern UINT32 LOS_EventDestroy(PEVENT_CB_S pstEventCB);
 
 
 #ifdef __cplusplus

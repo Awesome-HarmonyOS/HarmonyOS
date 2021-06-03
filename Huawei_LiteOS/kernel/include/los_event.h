@@ -148,13 +148,13 @@ extern "C" {
 
 /**
  * @ingroup los_event
- * Event reading error code: should not be destory.
+ * Event reading error code: should not be destroy.
  *
  * Value: 0x02001c08
  *
  * Solution: Check whether the event list is not empty.
  */
-#define LOS_ERRNO_EVENT_SHOULD_NOT_DESTORY                  LOS_ERRNO_OS_ERROR(LOS_MOD_EVENT, 0x08)
+#define LOS_ERRNO_EVENT_SHOULD_NOT_DESTROY                  LOS_ERRNO_OS_ERROR(LOS_MOD_EVENT, 0x08)
 
 /**
  * @ingroup los_event
@@ -316,7 +316,7 @@ extern UINT32 LOS_EventClear(PEVENT_CB_S pstEventCB, UINT32 uwEvents);
  *@see LOS_EventPoll | LOS_EventRead | LOS_EventWrite
  *@since Huawei LiteOS V100R001C00
  */
-extern UINT32 LOS_EventDestory(PEVENT_CB_S pstEventCB);
+extern UINT32 LOS_EventDestroy(PEVENT_CB_S pstEventCB);
 
 
 #ifdef __cplusplus
