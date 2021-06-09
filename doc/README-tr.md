@@ -126,8 +126,8 @@ Yeni güncellemeler cihazlar arasında uygulanır. Huawei Ark Derleyici, Android
 ## 9. Videolar
 
 * [Eğitici Videolar]
-* [Huawei HDC.2019 Harmony OS & EMUI10 Live Record](https://youtu.be/yUVGc7zpuKU)
-* [Honor Smart Screen TV Official Trailer](https://youtu.be/GczF2CKIGPk)
+* [Huawei HDC.2019 Harmony OS & EMUI10 Live Record](https://youtu.be/d26n4pJtnBY)
+* [Honor Smart Screen TV Official Trailer](https://youtu.be/uQFBh2cq_SY)
 
 
 İpuçları: Bu proje resmi değildir. Bu projenin amacı internette HarmonyOS ile ilgili bazı belgeler derlemek ve okuyuculara sunmaktır. Bu ticari bir proje değildir. Bu proje sadece HarmonyOS ye başlamak ve tüm dökümanlarına ulaşmak içindir. Bu projeyi iş için ya da para kazanmakla ilgili bir şey için kullanıyorsanız ya da bu projenin kullanılmasından veya bu projeyle bağlantılı olarak ortaya çıkan herhangi bir anlaşmazlık durumunda, birinin seçiminin veya eyleminin olumsuz sonuçlarından veya etkilerinden tüm sorumluluğu siz üstleneceksiniz.
