@@ -68,14 +68,14 @@ HarmonyOS relies on multi-terminal development IDE, multi-language unified compi
 
 ## 1. Official Resources
 
-- [Official Site](https://developer.huawei.com)
+- [Official Site](https://www.harmonyos.com/)
 - [Release Notices]
 - [Security Notices]
 - [Tutorials]
-- [Documentation]
+- [Development Documentation](https://developer.harmonyos.com/en/docs/documentation/doc-guides/document-outline-0000001064589184)
 
 ## 2. Download
-- [Mirrors]
+- [Mirrors - OpenHarmony](https://openharmony.gitee.com/)
 
 ## 3. Architecture References
 - [LiteOS](Huawei_LiteOS/README.md)
