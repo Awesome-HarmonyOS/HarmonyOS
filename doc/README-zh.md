@@ -122,7 +122,9 @@
 * [[HDC 2019]华为开发者大会-暨鸿蒙OS及EMUI 10发布会完整视频](https://www.bilibili.com/video/av62922095/)
 * [荣耀智慧屏发布会完整视频](https://www.bilibili.com/video/av63069901)
 
+## 10. 外部评论及消息
 
+- [来自知乎由@默然的内部消息](./external_comment/zhiHu.com.md)
 
 
 
