@@ -121,8 +121,8 @@ HarmonyOS relies on multi-terminal development IDE, multi-language unified compi
 ## 9. Videos
 
 * [Instructional Videos]
-* [Huawei HDC.2019 Harmony OS & EMUI10 Live Record](https://youtu.be/yUVGc7zpuKU)
-* [Honor Smart Screen TV Official Trailer](https://youtu.be/GczF2CKIGPk)
+* [Huawei HDC.2019 Harmony OS & EMUI10 Live Record](https://youtu.be/yUVGc7zpukU)
+* [Honor Smart Screen TV Official Trailer](https://youtu.be/GczF2CKlGPk)
 
 
 Tips: This project is not official. This project collects documents about HarmonyOS from the Internet. This is not a commercial project. This project just introduces HarmonyOS and all documents and codes come from the Internet. If you use this project for business or something about making money, or in the event of any disputes arising from the usage of, or in connection with this project, you will accept all responsibility for the negative results or effects of one's choice or action.
