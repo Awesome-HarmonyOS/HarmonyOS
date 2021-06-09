@@ -85,7 +85,7 @@ HarmonyOS relies on multi-terminal development IDE, multi-language unified compi
 ## 4. Hardware drivers
 - [Device compatibility]
 - [Standards & Protocols] 
-- [Hareware Quality Specification]
+- [Hardware Quality Specification]
 - [Driver Development Kit]
 - [Driver Samples]
 - [Debugging Tools]
