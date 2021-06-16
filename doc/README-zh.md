@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="https://github.com/Awesome-HarmonyOS/HarmonyOS">
-    <img src="../assets/img/hi.jpg" width="750px">
+    <img src="../assets/img/hi.jpg" width="700px">
   </a>
 </p>
 
