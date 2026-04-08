@@ -108,6 +108,7 @@ HarmonyOS relies on multi-terminal development IDE, multi-language unified compi
 #### IDE
 - [LiteOS IDE][Huawei LiteOS Studio](https://static.huaweicloud.com/upload/files/sdk/LiteOS_IDE.zip)
 
+- [Gitstar](https://gitstar.ai?utm_medium=github_readme&utm_source=awesome_list&utm_campaign=Awesome-HarmonyOS_HarmonyOS) - Social feed for GitHub where you follow devs, see what they star, and catch trending repos early.
 ## 6. Community
 - [Questions]
 
