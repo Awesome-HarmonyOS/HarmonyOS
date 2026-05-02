@@ -108,6 +108,9 @@ HarmonyOS relies on multi-terminal development IDE, multi-language unified compi
 #### IDE
 - [LiteOS IDE][Huawei LiteOS Studio](https://static.huaweicloud.com/upload/files/sdk/LiteOS_IDE.zip)
 
+#### Testing
+- [HMNextAuto](https://github.com/ziguiway/hmnextauto) - Python-based UI automation framework for HarmonyOS NEXT, API compatible with uiautomator2, supports XPath, image recognition, performance monitoring.
+
 ## 6. Community
 - [Questions]
 
