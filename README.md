@@ -116,6 +116,7 @@ HarmonyOS relies on multi-terminal development IDE, multi-language unified compi
 
 ## 8. Products
 
+- [Corterm](https://github.com/monster-echo/CortexTerminal2) - 云枢终端 — a self-hosted remote terminal platform available on AppGallery. Provides browser-native terminal access to remote machines, with session persistence and multi-worker support. Built with .NET 10 and supports HarmonyOS, iOS, and Android.
 - [Honor Smart Screen -- The first device to use the HarmonyOS](products/honor_smart_screen.md)
 
 ## 9. Videos
