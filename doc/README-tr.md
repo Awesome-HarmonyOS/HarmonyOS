@@ -121,7 +121,7 @@ Yeni güncellemeler cihazlar arasında uygulanır. Huawei Ark Derleyici, Android
 
 ## 8. Ürünler
 
-- [Honor Smart Screen -- HarmonyOS kullanan ilk cihaz](products/honor_smart_screen.md)
+- [Honor Smart Screen -- HarmonyOS kullanan ilk cihaz](../products/honor_smart_screen.md)
 
 ## 9. Videolar
 
